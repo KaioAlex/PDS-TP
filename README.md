@@ -1,4 +1,4 @@
-# Trabalho Prático - DivideDespesas
+# Trabalho Prático - SplitWallet
 
 * Membros e papéis:
 
