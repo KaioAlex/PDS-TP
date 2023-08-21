@@ -12,22 +12,22 @@
 
     Este trabalho tem como objetivo implementar um sistema que gerencie as despesas de forma inteligente.
 
-    * Pricipais Features:
+    *  Pricipais Features:
  
-          Cadastro de despesas individuais
+          - Cadastro de despesas individuais
 
-          Criação de grupos para cadastros de despesas compartilhadas
+          - Criação de grupos para cadastros de despesas compartilhadas
 
-          Divisão de despesas antre participantes de grupos
+          - Divisão de despesas antre participantes de grupos
 
-          Gerenciamento de dívidas entre participantes dos grupos
+          - Gerenciamento de dívidas entre participantes dos grupos
 
-          Controle de fluxo de pagamento entre participantes de um grupo
+          - Controle de fluxo de pagamento entre participantes de um grupo
 
 * Tecnologias:
 
-    Front-End: Vue JS
+    Front-End: JavaScript com framework Vue JS
 
-    Backend: Python
+    Backend: Python com framework Flask
 
     BD: MySQL
