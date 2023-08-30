@@ -8,6 +8,8 @@
   
     João Pedro Braga Ennes (FrontEnd Developer)
 
+    Pedro Luis Costa Mucci (FullStack Developer)
+  
 *   Escopo:
 
     Este trabalho tem como objetivo implementar um sistema que gerencie as despesas de forma inteligente.
