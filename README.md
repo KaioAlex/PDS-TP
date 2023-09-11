@@ -19,9 +19,7 @@
  
           - **Registro de despesas individuais**: O usuário pode registrar despesas comuns, como contas de restaurante, aluguel, contas de serviços públicos, compras de supermercado, viagens, entre outras. Ao registrar uma despesa, o usuário especifica o valor, a descrição, a data e quem pagou por ela.
 
-          - **Criação de grupos para cadastros de despesas compartilhadas**: Os usuários podem criar grupos para gerenciar despesas compartilhadas com amigos, familiares ou colegas de trabalho.
-
-          - **Divisão de despesas entre participantes de grupos**: O aplicativo facilita a divisão justa das despesas entre os membros do grupo.
+          - **Pagar despesas em conjunto**: Os usuários podem gerenciar despesas compartilhadas com amigos, familiares ou colegas de trabalho.
             
           - **Relatórios e histórico**: O usuários pode acessar relatórios detalhados e históricos de despesas, o que ajuda a manter o controle de todas as transações ao longo do tempo.
             
