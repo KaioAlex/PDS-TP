@@ -57,6 +57,7 @@
 ## Backlog da Sprint
 
 Exemplo:
+
 **História #1**: Como usuário, eu gostaria de criar uma conta
 - **Tarefas e responsáveis**:
     - Instalar banco de dados e criar primeiras tabelas [Caio]
