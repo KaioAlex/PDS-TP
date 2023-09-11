@@ -41,8 +41,8 @@
 
 1. Como usuário, eu gostaria de fazer cadastro no meu perfil.
 2. Como usuário, eu gostaria de editar os dados do meu perfil.
-3. Como usuário, eu gostaria de adicionar e deletar cartões da minha carteira.
-4. Como usuário, eu gostaria de procurar lista de cartões franquiados.
+3. Como usuário, eu gostaria de procurar lista de cartões cadastrados.
+4. Como usuário, eu gostaria de adicionar e deletar cartões da minha carteira.
 5. Como usuário, eu gostaria de solicitar o bloqueio (inativação) de um cartão cadastrado na plataforma.
 6. Como usuário, eu gostaria de pesquisar outros usuários da plataforma pelo username.
 7. Como usuário, eu gostaria de poder adicionar e deletar amigos da minha lista de amizade.
