@@ -34,4 +34,13 @@
 
     BD: MySQL
 
-##Backlog do Produto
+## Backlog do Produto
+
+1. Como usuário, eu gostaria de fazer cadastro no meu perfil
+2. Como usuário, eu gostaria de editar os dados do meu perfil
+3. Como usuário, eu gostaria de adicionar e deletar cartões da minha carteira
+4. Como usuário, eu gostaria de poder adicionar e deletar amigos da minha lista de amizade
+5. Como usuário, eu gostaria de enviar e receber dinheiro dos meus amigos
+6. Como usuário, eu gostaria de pagar uma conta em conjunto com meus amigos
+7. Como usuário, eu gostaria de consultar perguntas comuns na tela de ajuda
+8. Como usuário, eu gostaria de mandar mensagem na tela de ajuda
