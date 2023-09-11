@@ -1,6 +1,6 @@
 # Trabalho Prático - SplitWallet
 
-* Membros e papéis:
+* **Membros e papéis**:
 
     Caio Alexandre Campos Maciel (BackEnd Developer)
   
@@ -10,26 +10,26 @@
 
     Pedro Luis Costa Mucci (FullStack Developer)
   
-*   Escopo:
+*   **Escopo**:
 
     Este trabalho tem como objetivo implementar um sistema que gerencie as despesas de forma inteligente. É uma ferramenta prática para ajudar grupos de pessoas a dividir despesas de forma justa e transparente, evitando conflitos e simplificando o gerenciamento financeiro em situações de compartilhamento de despesas. É uma solução interessante para manter o controle das finanças em grupo e garantir que todos estejam quites. Portanto, torna mais fácil o acompanhamento e o equilíbrio de contas em situações como viagens em grupo, compartilhamento de despesas domésticas, jantares entre amigos etc. Sendo útil quando amigos ou colegas compartilham despesas comuns e desejam evitar conflitos sobre quem deve a quem.
 
 
-    *  Pricipais Features:
+    *  **Principais Features**:
  
-          - Registro de despesas individuais: O usuário pode registrar despesas comuns, como contas de restaurante, aluguel, contas de serviços públicos, compras de supermercado, viagens, entre outras. Ao registrar uma despesa, o usuário especifica o valor, a descrição, a data e quem pagou por ela.
+          - **Registro de despesas individuais**: O usuário pode registrar despesas comuns, como contas de restaurante, aluguel, contas de serviços públicos, compras de supermercado, viagens, entre outras. Ao registrar uma despesa, o usuário especifica o valor, a descrição, a data e quem pagou por ela.
 
-          - Criação de grupos para cadastros de despesas compartilhadas: Os usuários podem criar grupos para gerenciar despesas compartilhadas com amigos, familiares ou colegas de trabalho.
+          - **Criação de grupos para cadastros de despesas compartilhadas**: Os usuários podem criar grupos para gerenciar despesas compartilhadas com amigos, familiares ou colegas de trabalho.
 
-          - Divisão de despesas entre participantes de grupos: O aplicativo facilita a divisão justa das despesas entre os membros do grupo.
+          - **Divisão de despesas entre participantes de grupos**: O aplicativo facilita a divisão justa das despesas entre os membros do grupo.
             
-          - Relatórios e histórico: O usuários pode acessar relatórios detalhados e históricos de despesas, o que ajuda a manter o controle de todas as transações ao longo do tempo.
+          - **Relatórios e histórico**: O usuários pode acessar relatórios detalhados e históricos de despesas, o que ajuda a manter o controle de todas as transações ao longo do tempo.
             
-          - Conversão de moeda: O aplicativo também oferece a opção de converter despesas em diferentes moedas, o que pode ser útil para usuários que viajam internacionalmente.
+          - **Conversão de moeda**: O aplicativo também oferece a opção de converter despesas em diferentes moedas, o que pode ser útil para usuários que viajam internacionalmente.
 
-          - Saldo de contas: O SplitWallet mantém um registro atualizado do saldo de cada membro em relação ao grupo
+          - **Saldo de contas**: O SplitWallet mantém um registro atualizado do saldo de cada membro em relação ao grupo.
 
-* Tecnologias:
+* **Tecnologias**:
 
     Front-End: JavaScript com framework Vue JS
 
