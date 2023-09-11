@@ -46,11 +46,12 @@
 8. Como usuário, eu gostaria de favoritar amigos da plataforma.
 9. Como usuário, eu gostaria de enviar e receber dinheiro dos meus amigos.
 10. Como usuário, eu gostaria de pagar uma conta em conjunto com meus amigos.
-11. Como usuário, eu gostaria de consultar o meu extrato de transações realizadas.
-12. Como usuário, eu gostaria de gerar um arquivo CSV com minhas transações desejadas.
-13. Como usuário, eu gostaria de consultar perguntas comuns na tela de ajuda.
-14. Como usuário, eu gostaria de realizar a conversão da moeda referente a quantia disponível na plataforma (e.g. Real para Dólar).
-15. Como usuário, eu gostaria de ganhar pontos para cada transação realizada.
+11. Como usuário, eu gostaria de revisar os dados de transação.
+12. Como usuário, eu gostaria de consultar o meu extrato de transações realizadas.
+13. Como usuário, eu gostaria de gerar um arquivo CSV com minhas transações desejadas.
+14. Como usuário, eu gostaria de consultar perguntas comuns na tela de ajuda.
+15. Como usuário, eu gostaria de realizar a conversão da moeda referente a quantia disponível na plataforma (e.g. Real para Dólar).
+16. Como usuário, eu gostaria de ganhar pontos para cada transação realizada.
 
 ## Backlog da Sprint
 
@@ -64,7 +65,7 @@
     - Criar tela de Login [Pedro]
     - Criar tela Perfil [João]
 
-**História #2**: Carteira, cartões e valores. BP (3 a 5, 14)
+**História #2**: Carteira, cartões e valores. BP (3 a 5, 15)
 - **Tarefas e responsáveis**:
     - Criar tabelas de carteira e cartões [Caio]
     - CRUD tabelas de carteira e cartões [Othavio]
@@ -89,19 +90,19 @@
     - Tela de pagamento  [João, Pedro]
     - Regra de negócio, Verificar valores disponível [Othávio]
  
-**História #6**: Extrato de operações. (BP 11 e 12)
+**História #6**: Extrato de operações. (BP 11 a 13)
 - **Tarefas e responsáveis**:
     - Gerar CSV [Othávio]
     - CRUD tabela de histórico [Caio]
     - Tela de Histórico [João, Pedro]
  
-**História #7**: Tela de ajuda. (BP 13)
+**História #7**: Tela de ajuda. (BP 14)
 - **Tarefas e responsáveis**:
     - Tabela de Perguntas(BACK) [Othávio]
     - Ler tabela de perguntas [Caio]
     - Tela de Perguntas [João,Pedro]
       
-**História #8**: Sistema de pontos. (BP 15)
+**História #8**: Sistema de pontos. (BP 16)
 - **Tarefas e responsáveis**:
     - Atualizar tabela de usuário com pontos [Othávio]
     - Realizar calculo de pontos pela transação [Caio]
