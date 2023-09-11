@@ -58,7 +58,7 @@
 
 ## Backlog da Sprint
 
-**História #1**: Como usuário, eu gostaria de fazer cadastro no meu perfil (Criar e editar conta, tela de login e perfil). (BP 1 e 2)
+**História #1**: Como usuário, eu gostaria de fazer cadastro no meu perfil (Criar e editar conta, tela de login e perfil).
 - **Tarefas e responsáveis**:
     - Instalar banco de dados [Caio]
     - Instalar Python Flask [Caio]
@@ -68,44 +68,44 @@
     - Criar tela de Login [Pedro]
     - Criar tela Perfil [João]
 
-**História #2**: Como usuário, eu gostaria de adicionar e deletar cartões da minha carteira (Carteira, cartões e valores). BP (3 a 5, 15)
+**História #2**: Como usuário, eu gostaria de adicionar e deletar cartões da minha carteira (Carteira, cartões e valores).
 - **Tarefas e responsáveis**:
     - Criar tabelas de carteira e cartões [Caio]
     - CRUD tabelas de carteira e cartões [Othavio]
     - Tela de carteira [João, Pedro]
 
-**História #3**: Como usuário, eu gostaria de poder adicionar e deletar amigos da minha lista de amizade (Lista de amigos e favoritos) (BP 6 a 8)
+**História #3**: Como usuário, eu gostaria de poder adicionar e deletar amigos da minha lista de amizade (Lista de amigos e favoritos)
 - **Tarefas e responsáveis**:
     - CRUD tabela amigos [Caio]
     - Criar tabela de amigos no BD [Othávio]
     - Criar tela de amigos [Pedro]
     - Listar amigos favoritos primeiro com uma estrlinha ao lado [João]
  
-**História #4**: Como usuário, eu gostaria de enviar e receber dinheiro dos meus amigos. (BP 9)
+**História #4**: Como usuário, eu gostaria de enviar e receber dinheiro dos meus amigos.
 - **Tarefas e responsáveis**:
     - Update tabela de cartões [Caio]
     - Regras de negócio BACK [Othávio]
     - Telas de enviar e receber valores [João, Pedro]
  
-**História #5**: Como usuário, eu gostaria de pagar uma conta em conjunto com meus amigos. (BP 10)
+**História #5**: Como usuário, eu gostaria de pagar uma conta em conjunto com meus amigos.
 - **Tarefas e responsáveis**:
     - Gerenciar valores na carteira [Caio]
     - Tela de pagamento  [João, Pedro]
     - Regra de negócio, Verificar valores disponível [Othávio]
  
-**História #6**: Como usuário, eu gostaria de consultar o meu extrato de transações realizadas (Extrato de operações). (BP 11 a 13)
+**História #6**: Como usuário, eu gostaria de consultar o meu extrato de transações realizadas (Extrato de operações).
 - **Tarefas e responsáveis**:
     - Gerar CSV [Othávio]
     - CRUD tabela de histórico [Caio]
     - Tela de Histórico [João, Pedro]
  
-**História #7**: Como usuário, eu gostaria de consultar perguntas comuns na tela de ajuda (Tela de ajuda). (BP 14)
+**História #7**: Como usuário, eu gostaria de consultar perguntas comuns na tela de ajuda (Tela de ajuda).
 - **Tarefas e responsáveis**:
     - Tabela de Perguntas(BACK) [Othávio]
     - Ler tabela de perguntas [Caio]
     - Tela de Perguntas [João,Pedro]
       
-**História #8**: Como usuário, eu gostaria de ganhar pontos para cada transação realizada (Sistema de pontos). (BP 16)
+**História #8**: Como usuário, eu gostaria de ganhar pontos para cada transação realizada (Sistema de pontos).
 - **Tarefas e responsáveis**:
     - Atualizar tabela de usuário com pontos [Othávio]
     - Realizar calculo de pontos pela transação [Caio]
