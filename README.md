@@ -57,7 +57,7 @@
 ## Backlog da Sprint
 
 Exemplo:
-1. - **História #1**: Como usuário, eu gostaria de criar um usuário
+**História #1**: Como usuário, eu gostaria de criar uma conta
 - **Tarefas e responsáveis**:
     - Instalar banco de dados e criar primeiras tabelas [Caio]
     - Instalar Python Flask [Caio]
