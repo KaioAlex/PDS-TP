@@ -12,19 +12,22 @@
   
 *   Escopo:
 
-    Este trabalho tem como objetivo implementar um sistema que gerencie as despesas de forma inteligente.
+    Este trabalho tem como objetivo implementar um sistema que gerencie as despesas de forma inteligente. É uma ferramenta prática para ajudar grupos de pessoas a dividir despesas de forma justa e transparente, evitando conflitos e simplificando o gerenciamento financeiro em situações de compartilhamento de despesas. É uma solução interessante para manter o controle das finanças em grupo e garantir que todos estejam quites. Portanto, torna mais fácil o acompanhamento e o equilíbrio de contas em situações como viagens em grupo, compartilhamento de despesas domésticas, jantares entre amigos etc. Sendo útil quando amigos ou colegas compartilham despesas comuns e desejam evitar conflitos sobre quem deve a quem.
+
 
     *  Pricipais Features:
  
-          - Cadastro de despesas individuais
+          - Registro de despesas individuais: O usuário pode registrar despesas comuns, como contas de restaurante, aluguel, contas de serviços públicos, compras de supermercado, viagens, entre outras. Ao registrar uma despesa, o usuário especifica o valor, a descrição, a data e quem pagou por ela.
 
-          - Criação de grupos para cadastros de despesas compartilhadas
+          - Criação de grupos para cadastros de despesas compartilhadas: Os usuários podem criar grupos para gerenciar despesas compartilhadas com amigos, familiares ou colegas de trabalho.
 
-          - Divisão de despesas antre participantes de grupos
+          - Divisão de despesas entre participantes de grupos: O aplicativo facilita a divisão justa das despesas entre os membros do grupo.
+            
+          - Relatórios e histórico: O usuários pode acessar relatórios detalhados e históricos de despesas, o que ajuda a manter o controle de todas as transações ao longo do tempo.
+            
+          - Conversão de moeda: O aplicativo também oferece a opção de converter despesas em diferentes moedas, o que pode ser útil para usuários que viajam internacionalmente.
 
-          - Gerenciamento de dívidas entre participantes dos grupos
-
-          - Controle de fluxo de pagamento entre participantes de um grupo
+          - Saldo de contas: O SplitWallet mantém um registro atualizado do saldo de cada membro em relação ao grupo
 
 * Tecnologias:
 
@@ -55,7 +58,7 @@
 
 ## Backlog da Sprint
 
-**História #1**: Criar e editar conta Tela de Login e Perfil. (BP 1 e 2)
+**História #1**: Como usuário, eu gostaria de fazer cadastro no meu perfil (Criar e editar conta, tela de login e perfil). (BP 1 e 2)
 - **Tarefas e responsáveis**:
     - Instalar banco de dados [Caio]
     - Instalar Python Flask [Caio]
@@ -65,44 +68,44 @@
     - Criar tela de Login [Pedro]
     - Criar tela Perfil [João]
 
-**História #2**: Carteira, cartões e valores. BP (3 a 5, 15)
+**História #2**: Como usuário, eu gostaria de adicionar e deletar cartões da minha carteira (Carteira, cartões e valores). BP (3 a 5, 15)
 - **Tarefas e responsáveis**:
     - Criar tabelas de carteira e cartões [Caio]
     - CRUD tabelas de carteira e cartões [Othavio]
     - Tela de carteira [João, Pedro]
 
-**História #3**: Lita de amigos  e favoritos (BP 6 a 8)
+**História #3**: Como usuário, eu gostaria de poder adicionar e deletar amigos da minha lista de amizade (Lista de amigos e favoritos) (BP 6 a 8)
 - **Tarefas e responsáveis**:
     - CRUD tabela amigos [Caio]
     - Criar tabela de amigos no BD [Othávio]
     - Criar tela de amigos [Pedro]
     - Listar amigos favoritos primeiro com uma estrlinha ao lado [João]
  
-**História #4**: Enviar e receber dinheiro. (BP 9)
+**História #4**: Como usuário, eu gostaria de enviar e receber dinheiro dos meus amigos. (BP 9)
 - **Tarefas e responsáveis**:
     - Update tabela de cartões [Caio]
     - Regras de negócio BACK [Othávio]
     - Telas de enviar e receber valores [João, Pedro]
  
-**História #5**: Pagar conta em conjunto. (BP 10)
+**História #5**: Como usuário, eu gostaria de pagar uma conta em conjunto com meus amigos. (BP 10)
 - **Tarefas e responsáveis**:
     - Gerenciar valores na carteira [Caio]
     - Tela de pagamento  [João, Pedro]
     - Regra de negócio, Verificar valores disponível [Othávio]
  
-**História #6**: Extrato de operações. (BP 11 a 13)
+**História #6**: Como usuário, eu gostaria de consultar o meu extrato de transações realizadas (Extrato de operações). (BP 11 a 13)
 - **Tarefas e responsáveis**:
     - Gerar CSV [Othávio]
     - CRUD tabela de histórico [Caio]
     - Tela de Histórico [João, Pedro]
  
-**História #7**: Tela de ajuda. (BP 14)
+**História #7**: Como usuário, eu gostaria de consultar perguntas comuns na tela de ajuda (Tela de ajuda). (BP 14)
 - **Tarefas e responsáveis**:
     - Tabela de Perguntas(BACK) [Othávio]
     - Ler tabela de perguntas [Caio]
     - Tela de Perguntas [João,Pedro]
       
-**História #8**: Sistema de pontos. (BP 16)
+**História #8**: Como usuário, eu gostaria de ganhar pontos para cada transação realizada (Sistema de pontos). (BP 16)
 - **Tarefas e responsáveis**:
     - Atualizar tabela de usuário com pontos [Othávio]
     - Realizar calculo de pontos pela transação [Caio]
