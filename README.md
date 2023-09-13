@@ -6,7 +6,7 @@
   
     Othavio Rudda da Cunha Araújo (FullStack Developer, PO)
   
-    João Pedro Braga Ennes (FrontEnd Developer)
+    João Pedro Braga Ennes (FrontEnd Developer, UX)
 
     Pedro Luis Costa Mucci (FullStack Developer)
   
@@ -29,9 +29,9 @@
 
 * **Tecnologias**:
 
-    Front-End: JavaScript com framework Vue JS
+    FrontEnd: JavaScript com framework Vue JS
 
-    Backend: Python com framework Flask
+    BackEnd: Python com framework Flask
 
     BD: MySQL
 
