@@ -1,4 +1,4 @@
-# frontend
+# SplitWallet
 
 ## Project setup
 ```
