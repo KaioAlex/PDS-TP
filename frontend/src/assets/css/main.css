@@ -1,0 +1,67 @@
+@import './base.css';
+
+input {
+  display: flex;
+  padding: 11px 16px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 2px solid var(--color-input-border);
+  background: var(--color-input-background);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  max-width: 1160px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.btn {
+  border-radius: 80px;
+  display: flex;
+  padding: 17px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn a {
+  text-decoration: none;
+  color: var(--color-text-btn);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px; /* 100% */
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: var(--color-background-btn-primary);
+}
+
+.btn-secondary {
+  background: var(--color-background-btn-secondary);
+}
+.btn-alternative {
+  background: var(--color-background-btn-alternative);
+}
+
+.btn-secondary a {
+  color: var(--color-text-btn-secondary);
+}
+
+@media screen and (max-width: 820px) {
+  .container {
+    max-width: 740px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 360px;
+  }
+}

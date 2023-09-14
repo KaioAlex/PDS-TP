@@ -1,0 +1,59 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --vt-c-white: #ffffff;
+
+  --vt-c-black: #000000;
+  --vt-c-black-soft: #222222;
+  --vt-c-black-mute: #282828;
+  --vt-c-black-transparent: rgba(255, 255, 255, 0.10);
+
+  --vt-c-green-primary: #4BFFB3;
+  --vt-c-green-bg: #050605;
+  --vt-c-green-shadow: rgba(75, 255, 179, 0.30);
+
+  --vt-c-text-light: var(--vt-c-black);
+  --vt-c-text-dark: var(--vt-c-white);
+
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--vt-c-green-bg);
+  --color-background-green: var(--vt-c-green-primary);
+
+  --color-title: var(--vt-c-white);
+  --color-text: var(--vt-c-white);
+  --color-text-dark: var(--vt-c-text-light);
+
+  --color-text-btn: var(--vt-c-text-light);
+  --color-text-btn-secondary: var(--vt-c-text-dark);
+  --color-background-btn-primary: var(--vt-c-green-primary);
+  --color-background-btn-secondary: var(--vt-c-black-transparent);
+  --color-background-btn-alternative: var(--vt-c-white);
+  --color-background-footer: var(--vt-c-black-transparent);
+
+  --color-shadow: var(--vt-c-green-shadow);
+  --color-card: var(--vt-c-black-transparent);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
