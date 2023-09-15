@@ -22,13 +22,14 @@ input {
 .btn {
   border-radius: 80px;
   display: flex;
-  padding: 17px 32px;
   justify-content: center;
   align-items: center;
   gap: 8px;
 }
 
+button.btn,
 .btn a {
+  padding: 17px 32px;
   text-decoration: none;
   color: var(--color-text-btn);
   font-size: 16px;

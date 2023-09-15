@@ -119,6 +119,8 @@ export default {
         border-radius: 40px;
         background: var(--color-card);
         .info-section-card-img {
+          width: 68px;
+          height: 68px;
           display: inline-flex;
           padding: 14px 13px 13px 13px;
           justify-content: center;
