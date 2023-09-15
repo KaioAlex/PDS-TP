@@ -12,17 +12,29 @@
             controle das divisões
           </p>
           <div class="feature-content-list">
-            <div
-              class="feature-content-list-item"
-              v-for="(feature, index) in getFeatures(1)"
-              :key="index"
-            >
+            <div class="feature-content-list-item">
               <div class="feature-content-list-item-img">
-                <img :src="`@/assets/images/home/icons/${feature.icon}`" />
+                <img src="@/assets/images/home/icons/arrow-down-icon.svg" />
               </div>
-              <span class="feature-content-list-item__text">{{
-                feature.text
-              }}</span>
+              <span class="feature-content-list-item__text">
+                Sem taxas na realização de pagamentos
+              </span>
+            </div>
+            <div class="feature-content-list-item">
+              <div class="feature-content-list-item-img">
+                <img src="@/assets/images/home/icons/ray-icon.svg" />
+              </div>
+              <span class="feature-content-list-item__text">
+                Transação rápida e segura
+              </span>
+            </div>
+            <div class="feature-content-list-item">
+              <div class="feature-content-list-item-img">
+                <img src="@/assets/images/home/icons/locker-icon.svg" />
+              </div>
+              <span class="feature-content-list-item__text">
+                Criptografia de ponta a ponta
+              </span>
             </div>
           </div>
         </div>
@@ -37,17 +49,21 @@
             Controle facilitado e unificado de seus cartões
           </p>
           <div class="feature-content-list">
-            <div
-              class="feature-content-list-item"
-              v-for="(feature, index) in getFeatures(2)"
-              :key="index"
-            >
+            <div class="feature-content-list-item">
               <div class="feature-content-list-item-img">
-                <img :src="`@/assets/images/home/icons/${feature.icon}`" />
+                <img src="@/assets/images/home/icons/shield-icon.svg" />
               </div>
-              <span class="feature-content-list-item__text">{{
-                feature.text
-              }}</span>
+              <span class="feature-content-list-item__text">
+                Dados 100% privados
+              </span>
+            </div>
+            <div class="feature-content-list-item">
+              <div class="feature-content-list-item-img">
+                <img src="@/assets/images/home/icons/message-icon.svg" />
+              </div>
+              <span class="feature-content-list-item__text">
+                Suporte dedicado 24/7
+              </span>
             </div>
           </div>
         </div>
@@ -62,35 +78,6 @@
 <script>
 export default {
   name: "HomeFeatures",
-  methods: {
-    getFeatures(type) {
-      return type === 1
-        ? [
-            {
-              text: "Sem taxas na realização de pagamentos",
-              icon: "arrow-down-icon.svg",
-            },
-            {
-              text: "Transação rápida e segura",
-              icon: "ray-icon.svg",
-            },
-            {
-              text: "Criptografia de ponta a ponta",
-              icon: "locker-icon.svg",
-            },
-          ]
-        : [
-            {
-              text: "Dados 100% privados",
-              icon: "shield-icon.svg",
-            },
-            {
-              text: "Suporte dedicado 24/7",
-              icon: "message-icon.svg",
-            },
-          ];
-    },
-  },
 };
 </script>
 
