@@ -35,6 +35,10 @@
 
     BD: MySQL
 
+## Protótipo Figma
+
+https://www.figma.com/file/MlgA8JMavN2nOAVRBPUhKt/SplitWallet
+
 ## Backlog do Produto
 
 1. Como usuário, eu gostaria de fazer cadastro no meu perfil.
