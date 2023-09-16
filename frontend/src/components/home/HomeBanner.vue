@@ -51,7 +51,7 @@
       margin-bottom: 52px;
     }
     .home-banner-left__btn {
-      max-width: 261px;
+      max-width: 280px;
     }
   }
   .home-banner-right {

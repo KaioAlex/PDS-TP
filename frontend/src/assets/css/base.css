@@ -2,6 +2,10 @@
 :root {
   --vt-c-white: #ffffff;
 
+  --vt-c-gray: #D9D9D9;
+  --vt-c-dark-gray: #545454;
+  --vt-c-gray-transparent: rgba(61, 61, 61, 0.90);
+
   --vt-c-black: #000000;
   --vt-c-black-soft: #222222;
   --vt-c-black-mute: #282828;
@@ -20,10 +24,14 @@
 :root {
   --color-background: var(--vt-c-green-bg);
   --color-background-input: var(--vt-c-black-transparent);
+  --color-background-gray-input: var(--vt-c-dark-gray);
   --color-background-green: var(--vt-c-green-primary);
+  --color-background-form: var(--vt-c-gray-transparent);
 
   --color-title: var(--vt-c-white);
   --color-text: var(--vt-c-white);
+  --color-text-gray: var(--vt-c-gray);
+  --color-text-primary: var(--vt-c-green-primary);
   --color-text-dark: var(--vt-c-text-light);
 
   --color-text-btn: var(--vt-c-text-light);
