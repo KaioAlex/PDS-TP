@@ -47,7 +47,7 @@ export default {
   align-items: center;
   width: 100%;
   padding-right: 20px;
-  gap: 56px;
+  gap: 32px;
 }
 
 @media screen and (max-width: 820px) {

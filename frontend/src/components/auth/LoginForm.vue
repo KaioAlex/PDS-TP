@@ -47,7 +47,6 @@ export default {
 <style lang="scss" scoped>
 .login {
   width: 579px;
-  height: 687px;
   border-radius: 30px;
   padding: 28px 44px;
   background: var(--color-background-form);
