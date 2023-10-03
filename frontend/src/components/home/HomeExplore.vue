@@ -51,7 +51,7 @@
         max-width: 500px;
       }
       .explore-content__btn {
-        max-width: 261px;
+        max-width: 270px;
       }
     }
   }

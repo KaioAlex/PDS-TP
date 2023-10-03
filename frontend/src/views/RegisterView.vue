@@ -10,7 +10,7 @@ import RegisterForm from "@/components/auth/RegisterForm.vue";
 
 <style lang="scss" scoped>
 main {
-  background: url(@/assets/images/auth/auth-bg.png) no-repeat;
+  background: url(@/assets/images/auth/register-bg.png) no-repeat;
   background-size: cover;
   height: 100vh;
   display: flex;
