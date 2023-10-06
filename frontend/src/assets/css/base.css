@@ -1,10 +1,16 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
+  --vt-c-off-white: #FCFCFC;
 
   --vt-c-gray: #D9D9D9;
   --vt-c-dark-gray: #545454;
   --vt-c-gray-transparent: rgba(61, 61, 61, 0.90);
+  --vt-c-gray-menu-label: #808080;
+  --vt-c-gray-card-label: #8E8E8E;
+  --vt-c-gray-bg: #222;
+  --vt-c-gray-header: #2E2E2E;
+  --vt-c-gray-cards: #3D3D3D;
 
   --vt-c-black: #000000;
   --vt-c-black-soft: #222222;
@@ -14,6 +20,7 @@
   --vt-c-green-primary: #4BFFB3;
   --vt-c-green-bg: #050605;
   --vt-c-green-shadow: rgba(75, 255, 179, 0.30);
+  --vt-c-green-shadow-2: rgba(75, 255, 179, 0.35);
 
   --vt-c-text-light: var(--vt-c-black);
   --vt-c-text-dark: var(--vt-c-white);
@@ -27,15 +34,24 @@
   --color-background-gray-input: var(--vt-c-dark-gray);
   --color-background-green: var(--vt-c-green-primary);
   --color-background-form: var(--vt-c-gray-transparent);
+  --color-background-dashboard: var(--vt-c-gray-bg);
+  --color-background-header: var(--vt-c-gray-header);
+  --color-background-cards: var(--vt-c-gray-cards);
 
   --color-title: var(--vt-c-white);
+  --color-title-card: var(--vt-c-gray-card-label);
   --color-text: var(--vt-c-white);
+  --color-text-card: var(--vt-c-off-white);
   --color-text-gray: var(--vt-c-gray);
   --color-text-primary: var(--vt-c-green-primary);
   --color-text-dark: var(--vt-c-text-light);
+  --color-text-menu: var(--vt-c-gray-menu-label);
+  --color-title-card: var(--vt-c-gray-card-label);
 
   --color-text-btn: var(--vt-c-text-light);
   --color-text-btn-secondary: var(--vt-c-text-dark);
+  --color-background-app-btn-primary: var(--vt-c-green-shadow-2);
+  --color-background-app-btn-alternative: var(--vt-c-gray-cards);
   --color-background-btn-primary: var(--vt-c-green-primary);
   --color-background-btn-secondary: var(--vt-c-black-transparent);
   --color-background-btn-alternative: var(--vt-c-white);
