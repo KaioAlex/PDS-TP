@@ -36,7 +36,7 @@
   --color-background-form: var(--vt-c-gray-transparent);
   --color-background-dashboard: var(--vt-c-gray-bg);
   --color-background-header: var(--vt-c-gray-header);
-  --color-background-cards: var(--vt-c-gray-cards);
+  --color-background-cards: var(--vt-c-dark-gray);
 
   --color-title: var(--vt-c-white);
   --color-title-card: var(--vt-c-gray-card-label);

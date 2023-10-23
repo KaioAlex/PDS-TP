@@ -5,7 +5,7 @@
         src="@/assets/images/logo.png"
         class="header__logo"
         alt="Logo"
-        @click="$router.push('/')"
+        @click="isLogged ? $router.push('/dashboard') : $router.push('/')"
       />
       <div class="navbar">
         <div class="btn btn-secondary">
@@ -14,6 +14,13 @@
         <div class="btn btn-primary">
           <RouterLink to="/register">Cadastrar</RouterLink>
         </div>
+      </div>
+      <div class="notifications">
+        <img
+          src="@/assets/images/menu/notification.png"
+          class="notifications__logo"
+          alt="Notification"
+        />
       </div>
     </div>
   </div>
@@ -24,8 +31,17 @@ export default {
   name: "HeaderVue",
   data() {
     return {
-      isLogged: true,
+      isLogged: window.location.pathname.includes("dashboard") ? true : false,
     };
+  },
+  watch: {
+    $route() {
+      if (window.location.pathname.includes("dashboard")) {
+        this.isLogged = true;
+      } else {
+        this.isLogged = false;
+      }
+    },
   },
 };
 </script>
@@ -42,8 +58,12 @@ export default {
     .container {
       padding: 0 50px;
       max-width: none;
+      justify-content: space-between;
       .navbar {
         display: none;
+      }
+      .notifications {
+        display: block;
       }
     }
   }
@@ -59,6 +79,9 @@ export default {
       width: 100%;
       padding-right: 20px;
       gap: 32px;
+    }
+    .notifications {
+      display: none;
     }
   }
 }
