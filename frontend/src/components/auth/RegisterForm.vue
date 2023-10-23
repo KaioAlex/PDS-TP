@@ -10,75 +10,75 @@
       <p class="register__subtitle">
         Informe seus dados para realizar seu cadastro.
       </p>
-      <div class="register_fields">
+      <div class="register-fields">
         <label
-          class="register_fields__label"
+          class="register-fields__label"
           for="name"
           v-if="showRegisterLabel"
           >Nome Completo</label
         >
         <input
-          class="register_fields__input"
+          class="register-fields__input"
           type="text"
           name="name"
           placeholder="Nome Completo"
         />
         <label
-          class="register_fields__label"
+          class="register-fields__label"
           for="email"
           v-if="showRegisterLabel"
           >E-mail</label
         >
         <input
-          class="register_fields__input"
+          class="register-fields__input"
           type="mail"
           name="email"
           placeholder="E-mail"
         />
         <label
-          class="register_fields__label"
+          class="register-fields__label"
           for="username"
           v-if="showRegisterLabel"
           >Username</label
         >
         <input
-          class="register_fields__input"
+          class="register-fields__input"
           type="text"
           name="username"
           placeholder="Username"
         />
         <label
-          class="register_fields__label"
+          class="register-fields__label"
           for="birthday"
           v-if="showRegisterLabel"
           >Data de Nascimento</label
         >
         <input
-          class="register_fields__input"
+          class="register-fields__input"
           type="date"
           name="birthday"
           placeholder="Data de Nascimento"
         />
         <label
-          class="register_fields__label"
+          class="register-fields__label"
           for="password"
           v-if="showRegisterPassword"
           >Senha</label
         >
         <input
-          class="register_fields__input"
+          class="register-fields__input"
           type="password"
           name="password"
           placeholder="Senha"
         />
         <label
-          class="register_fields__label"
+          class="register-fields__label"
           for="passwordConfirm"
           v-if="showRegisterPassword"
           >Confirme sua Senha</label
         >
         <input
-          class="register_fields__input"
+          class="register-fields__input"
           type="password"
           name="passwordConfirm"
           placeholder="Confirme sua Senha"
@@ -131,11 +131,11 @@ export default {
     line-height: 135%;
     margin-bottom: 66px;
   }
-  .register_fields {
+  .register-fields {
     width: 100%;
     max-height: 300px;
     overflow-y: scroll;
-    .register_fields__label {
+    .register-fields__label {
       color: var(--color-text-gray);
       text-align: left;
       font-size: 17px;
@@ -143,7 +143,7 @@ export default {
       font-weight: 400;
       line-height: normal;
     }
-    .register_fields__input {
+    .register-fields__input {
       width: 98%;
       background-color: var(--color-background-gray-input);
       border-radius: 15px;
@@ -159,15 +159,15 @@ export default {
       margin-bottom: 24px;
     }
   }
-  .register_fields::-webkit-scrollbar {
+  .register-fields::-webkit-scrollbar {
     width: 12px;
   }
 
-  .register_fields::-webkit-scrollbar-track {
+  .register-fields::-webkit-scrollbar-track {
     background: var(--color-background-form);
   }
 
-  .register_fields::-webkit-scrollbar-thumb {
+  .register-fields::-webkit-scrollbar-thumb {
     background-color: var(--color-background-gray-input);
     border-radius: 20px;
     border: 3px solid var(--color-background-form);

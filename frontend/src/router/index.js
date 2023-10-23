@@ -23,6 +23,15 @@ const routes = [
       );
     },
   },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: function () {
+      return import(
+        /* webpackChunkName: "register" */ "../views/DashboardView.vue"
+      );
+    },
+  },
 ];
 
 const router = createRouter({
