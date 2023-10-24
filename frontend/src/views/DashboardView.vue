@@ -4,14 +4,8 @@ import DashBoard from "@/components/dashboard/DashBoard.vue";
 </script>
 
 <template>
-  <main class="dashboard">
+  <main>
     <Menu />
     <DashBoard />
   </main>
 </template>
-
-<style scoped>
-.dashboard {
-  display: flex;
-}
-</style>

@@ -123,6 +123,7 @@ export default {
   padding: 157px 157px 79px 0;
   background-color: var(--color-background-dashboard);
   gap: 48px;
+  display: flex;
   .dashboard-block {
     padding: 20px 30px;
     background-color: var(--color-background-cards);

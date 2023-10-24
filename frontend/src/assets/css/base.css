@@ -3,6 +3,8 @@
   --vt-c-white: #ffffff;
   --vt-c-off-white: #FCFCFC;
 
+  --vy-c-red: rgba(171, 18, 18, 0.80);
+
   --vt-c-gray: #D9D9D9;
   --vt-c-dark-gray: #545454;
   --vt-c-gray-transparent: rgba(61, 61, 61, 0.90);
@@ -52,6 +54,7 @@
   --color-text-btn-secondary: var(--vt-c-text-dark);
   --color-background-app-btn-primary: var(--vt-c-green-shadow-2);
   --color-background-app-btn-alternative: var(--vt-c-gray-cards);
+  --color-background-app-btn-alert: var(--vy-c-red);
   --color-background-btn-primary: var(--vt-c-green-primary);
   --color-background-btn-secondary: var(--vt-c-black-transparent);
   --color-background-btn-alternative: var(--vt-c-white);

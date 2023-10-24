@@ -1,5 +1,9 @@
 @import './base.css';
 
+main {
+  display: flex;
+}
+
 input {
   display: flex;
   padding: 11px 16px;
@@ -29,7 +33,7 @@ input:focus, textarea:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 12.733px;
+  border-radius: 12px;
 
   color: var(--color-text-primary);
   font-family: Poppins;
@@ -45,6 +49,11 @@ input:focus, textarea:focus {
 
 .app-btn-alternative {
   background: var(--color-background-app-btn-alternative);
+}
+
+.app-btn-alert {
+  background: var(--color-background-app-btn-alert);
+  color: white;
 }
 
 .btn {

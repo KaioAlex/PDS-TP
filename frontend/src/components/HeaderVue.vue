@@ -52,6 +52,7 @@ export default {
   top: 0;
   width: 100vw;
   padding: 33px 0;
+  z-index: 1000;
   &.logged {
     background-color: var(--color-background-header);
     padding: 20px 0;
