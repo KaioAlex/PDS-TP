@@ -4,7 +4,6 @@ from typing import List
 
 from src.domain.interfaces.pedido.pedido import Pedido
 
-
 class PedidoInterface(ABC):
     @abstractmethod
     def getPedidosList(self) -> List[Pedido]:
