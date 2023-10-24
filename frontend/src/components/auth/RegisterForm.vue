@@ -84,7 +84,12 @@
           placeholder="Confirme sua Senha"
         />
       </div>
-      <button class="register__btn btn btn-primary">Register</button>
+      <button
+        class="register__btn btn btn-primary"
+        @click="$router.push('/dashboard')"
+      >
+        Register
+      </button>
     </div>
   </div>
 </template>

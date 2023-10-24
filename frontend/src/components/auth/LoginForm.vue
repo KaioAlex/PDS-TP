@@ -26,7 +26,12 @@
         name="password"
         placeholder="Senha"
       />
-      <button class="login__btn btn btn-primary">Login</button>
+      <button
+        class="login__btn btn btn-primary"
+        @click="$router.push('/dashboard')"
+      >
+        Login
+      </button>
       <a class="login__link" href="#">Esqueceu sua senha?</a>
     </div>
   </div>

@@ -32,6 +32,40 @@ const routes = [
       );
     },
   },
+  {
+    path: "/dashboard/profile",
+    name: "profile",
+    component: function () {
+      return import(
+        /* webpackChunkName: "register" */ "../views/ProfileView.vue"
+      );
+    },
+  },
+  {
+    path: "/dashboard/help",
+    name: "help",
+    component: function () {
+      return import(/* webpackChunkName: "register" */ "../views/HelpView.vue");
+    },
+  },
+  {
+    path: "/dashboard/friends",
+    name: "friends",
+    component: function () {
+      return import(
+        /* webpackChunkName: "register" */ "../views/FriendsView.vue"
+      );
+    },
+  },
+  {
+    path: "/dashboard/cards",
+    name: "cards",
+    component: function () {
+      return import(
+        /* webpackChunkName: "register" */ "../views/CardsView.vue"
+      );
+    },
+  },
 ];
 
 const router = createRouter({
