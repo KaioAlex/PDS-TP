@@ -17,3 +17,9 @@ import Footer from "@/components/FooterVue.vue";
     <Footer />
   </main>
 </template>
+
+<style scoped>
+main {
+  display: block;
+}
+</style>

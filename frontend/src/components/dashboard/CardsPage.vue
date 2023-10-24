@@ -125,7 +125,8 @@ export default {
       .card-info {
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 24px;
+        justify-content: space-between;
         .card-info__numbers {
           display: flex;
           align-items: center;
