@@ -1,5 +1,3 @@
-
-
 from random import random
 from typing import List
 from src.domain.interfaces.database.database import DatabaseInterface
@@ -10,7 +8,6 @@ pedidos_db = [
     {'id': 1, 'title': 'Pizza'},
     {'id': 2, 'title': 'Sushi'},
 ]
-
 
 class MongoAdapter(DatabaseInterface):
     def get_pedidos(self) -> List[Pedido]:

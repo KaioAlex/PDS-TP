@@ -4,7 +4,6 @@ from src.domain.interfaces.database.database import DatabaseInterface
 from src.domain.interfaces.pedido.pedido import Pedido
 from src.domain.interfaces.pedido.pedidoInterface import PedidoInterface
 
-
 class GetPedido:
     @inject.autoparams()
     def __init__(self, pedidointerface: PedidoInterface):

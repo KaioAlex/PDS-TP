@@ -3,7 +3,6 @@ import inject
 from src.domain.interfaces.database.database import DatabaseInterface
 from src.domain.interfaces.pedido.pedido import Pedido
 
-
 class DatabaseActions:
     @inject.autoparams()
     def get_pedidos(self, database: DatabaseInterface) -> List[Pedido]:

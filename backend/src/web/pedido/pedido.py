@@ -1,28 +1,23 @@
 import inject
 import json
-from flask import Blueprint, jsonify, Response, request
+from flask import Blueprint, jsonify, Response, request, render_template
 from src.domain.actions.pedido.get_pedidos import GetPedido
 from src.domain.actions.pedido.post_pedido import PostPedido
 from src.domain.interfaces.pedido.pedido import Pedido
-
 
 @inject.autoparams()
 def pedidos(get_pedido: GetPedido, post_pedidos: PostPedido) -> Blueprint:
     pedidos_blueprint = Blueprint('pedidos', __name__)
 
-    @pedidos_blueprint.route('/get_pedidos', methods=['GET'])
+    @pedidos_blueprint.route('/api/get_pedidos', methods=['GET'])
     def get_pedidos() -> Response:
         pedidos = get_pedido.execute()
         return jsonify({
             'pedidos': pedidos
         })
 
-    @pedidos_blueprint.route('/post_pedido', methods=['POST'])
+    @pedidos_blueprint.route('/api/post_pedido', methods=['POST'])
     def post_pedido() -> Response:
-        """
-            Pega o conteudo do argumento book que veio junto na URL
-        """
-        #book = request.args.get('book')
         """ 
             Pega o conteudo do body do request, deve vir no type json
         """

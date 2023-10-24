@@ -1,8 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
-
 from src.domain.interfaces.pedido.pedido import Pedido
-
 
 class DatabaseInterface(ABC):
     @abstractmethod
