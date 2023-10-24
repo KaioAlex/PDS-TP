@@ -40,6 +40,18 @@ export default {
           name: "Beltrano",
           username: "beltrano789",
         },
+        {
+          name: "Fulano",
+          username: "fulano123",
+        },
+        {
+          name: "Ciclano",
+          username: "ciclano456",
+        },
+        {
+          name: "Beltrano",
+          username: "beltrano789",
+        },
       ],
     };
   },
@@ -59,6 +71,10 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     .friend {
       display: flex;
       align-items: center;
@@ -112,6 +128,8 @@ export default {
     font-weight: 500;
     line-height: normal;
     gap: 29px;
+    margin-top: 24px;
+    padding: 17px;
   }
 }
 </style>
