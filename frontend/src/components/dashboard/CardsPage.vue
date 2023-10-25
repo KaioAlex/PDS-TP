@@ -6,34 +6,42 @@
       </div>
       <span class="cards-header__title">Meus Cartões</span>
     </div>
-    <div class="cards-list">
-      <div
-        v-for="(card, index) in cards"
-        :key="index"
-        class="card"
-        :style="`background: linear-gradient(249deg, ${card.backgrondColor.from} 0%, ${card.backgrondColor.to} 100.65%)`"
-      >
-        <div class="card-info">
-          <span class="card-info__numbers">.... {{ card.lastNumbers }}</span>
-          <div class="card-info-brand">
-            <img v-if="card.isVisa" src="@/assets/images/cards/Visa.png" />
-            <img v-else src="@/assets/images/cards/MasterCard.png" />
-            <span class="card-info__debit">Debit</span>
+    <CardForm v-if="showForm" @close="closeForm()" />
+    <div class="cards-list-container" v-else>
+      <div class="cards-list">
+        <div
+          v-for="(card, index) in cards"
+          :key="index"
+          class="card"
+          :style="`background: linear-gradient(249deg, ${card.backgrondColor.from} 0%, ${card.backgrondColor.to} 100.65%)`"
+        >
+          <div class="card-info">
+            <span class="card-info__numbers">.... {{ card.lastNumbers }}</span>
+            <div class="card-info-brand">
+              <img v-if="card.isVisa" src="@/assets/images/cards/Visa.png" />
+              <img v-else src="@/assets/images/cards/MasterCard.png" />
+              <span class="card-info__debit">Debit</span>
+            </div>
           </div>
+          <img src="@/assets/images/icons/delete.png" />
         </div>
-        <img src="@/assets/images/icons/delete.png" />
       </div>
-    </div>
-    <div class="cards-add__btn app-btn app-btn-primary">
-      <img src="@/assets/images/icons/add.png" alt="Add" />
-      Adicionar Cartão
+      <div class="cards-add__btn app-btn app-btn-primary" @click="openForm()">
+        <img src="@/assets/images/icons/add.png" alt="Add" />
+        Adicionar Cartão
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import CardForm from "./CardForm.vue";
+
 export default {
   name: "CardsPage",
+  components: {
+    CardForm,
+  },
   data() {
     return {
       cards: [
@@ -62,7 +70,16 @@ export default {
           isVisa: true,
         },
       ],
+      showForm: false,
     };
+  },
+  methods: {
+    openForm() {
+      this.showForm = true;
+    },
+    closeForm() {
+      this.showForm = false;
+    },
   },
 };
 </script>
@@ -105,64 +122,68 @@ export default {
       line-height: normal;
     }
   }
-  .cards-list {
+  .cards-list-container {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    overflow: scroll;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    .card {
-      height: 165px;
-      border-radius: 15px;
+    .cards-list {
+      width: 100%;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 21px 26px;
-      .card-info {
+      flex-direction: column;
+      gap: 24px;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .card {
+        height: 165px;
+        border-radius: 15px;
         display: flex;
-        flex-direction: column;
-        gap: 24px;
         justify-content: space-between;
-        .card-info__numbers {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 6px 17px 7px 17px;
-          border-radius: 8px;
-          background: rgba(61, 61, 61, 0.22);
-          font-size: 22px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 33px;
-        }
-        .card-info-brand {
+        align-items: flex-start;
+        padding: 21px 26px;
+        .card-info {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          .card-info__debit {
-            font-size: 12px;
+          gap: 24px;
+          justify-content: space-between;
+          .card-info__numbers {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 17px 7px 17px;
+            border-radius: 8px;
+            background: rgba(61, 61, 61, 0.22);
+            font-size: 22px;
             font-style: normal;
-            font-weight: 400;
-            line-height: 35px;
+            font-weight: 700;
+            line-height: 33px;
+          }
+          .card-info-brand {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .card-info__debit {
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 35px;
+            }
           }
         }
       }
     }
-  }
-  .cards-add__btn {
-    height: 79px;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    gap: 29px;
-    margin-top: 24px;
-    padding: 17px;
+    .cards-add__btn {
+      height: 79px;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      gap: 29px;
+      margin-top: 24px;
+      padding: 17px;
+      cursor: pointer;
+    }
   }
 }
 </style>
