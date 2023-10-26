@@ -96,7 +96,7 @@ export default {
     padding: 11px 40px 10px 73px;
     border-radius: 15px;
     background-color: var(--color-background-cards);
-    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.09);
+    box-shadow: 1px 1px 20px 1px var(--color-shadow-2);
     .help__title {
       font-size: 30px;
       font-style: normal;

@@ -95,7 +95,7 @@ export default {
   .cards-header {
     width: 100%;
     border-radius: 15px;
-    background-color: #3d3d3d;
+    background-color: var(--color-background-cards);
     display: flex;
     align-items: center;
     padding: 25px 43px;
@@ -105,7 +105,7 @@ export default {
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      background-color: #2e2e2e;
+      background-color: var(--color-background-header);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -152,7 +152,7 @@ export default {
             justify-content: center;
             padding: 6px 17px 7px 17px;
             border-radius: 8px;
-            background: rgba(61, 61, 61, 0.22);
+            background: var(--color-background-card-number);
             font-size: 22px;
             font-style: normal;
             font-weight: 700;

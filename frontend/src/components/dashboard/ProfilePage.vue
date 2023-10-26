@@ -71,7 +71,7 @@ export default {
     align-items: center;
     gap: 24px;
     background-color: var(--color-background-cards);
-    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.09);
+    box-shadow: 1px 1px 20px 1px var(--color-shadow-2);
     border-radius: 15px;
     padding: 42px 25px;
     .profile-icon-circle {
@@ -81,14 +81,14 @@ export default {
       width: 80px;
       height: 80px;
       border-radius: 85.106px;
-      background: #2e2e2e;
+      background: var(--color-background-circle);
       .profile-header__logo {
         width: 53px;
         height: 53px;
       }
     }
     .profile-header__text {
-      color: #fcfcfc;
+      color: var(--color-text-card);
       font-size: 30px;
       font-style: normal;
       font-weight: 400;
@@ -101,7 +101,7 @@ export default {
     gap: 40px;
     padding: 53px 52px;
     background-color: var(--color-background-cards);
-    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.09);
+    box-shadow: 1px 1px 20px 1px var(--color-shadow-2);
     border-radius: 15px;
     .profile-info-section {
       display: flex;
@@ -116,7 +116,7 @@ export default {
         width: 300px;
       }
       .profile-info-section__value {
-        color: #d9d9d9;
+        color: var(--color-text-gray);
         font-size: 23px;
         font-style: normal;
         font-weight: 400;

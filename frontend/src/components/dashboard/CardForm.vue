@@ -73,7 +73,7 @@ export default {
 <style lang="scss" scoped>
 .add-card {
   border-radius: 15px;
-  background: #3d3d3d;
+  background: var(--color-background-cards);
   padding: 30px;
   .add-card-header {
     display: flex;
@@ -87,7 +87,7 @@ export default {
       cursor: pointer;
     }
     &__title {
-      color: #808080;
+      color: var(--color-text-menu);
       text-align: center;
       font-size: 23px;
       font-style: normal;
@@ -118,7 +118,7 @@ export default {
     flex-direction: column;
     gap: 20px;
     .card-form__label {
-      color: #808080;
+      color: var(--color-text-menu);
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
@@ -130,7 +130,7 @@ export default {
       border-radius: 15px;
       border: none;
       padding: 0 20px;
-      background: #545454;
+      background: var(--color-background-gray-input);
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
