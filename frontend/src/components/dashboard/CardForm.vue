@@ -10,9 +10,6 @@
         />
         <h2 class="add-card-header__title">Adicionar Cartão</h2>
       </div>
-      <div class="add-card-header-btn app-btn app-btn-primary">
-        Adicionar Cartão
-      </div>
     </div>
     <div class="add-card-img">
       <img src="@/assets/images/cards/create-card.png" alt="Cards" />
@@ -55,6 +52,9 @@
             placeholder="Código de segurança"
           />
         </div>
+      </div>
+      <div class="add-card-header-btn app-btn app-btn-primary">
+        Adicionar Cartão
       </div>
     </div>
   </div>
@@ -99,10 +99,6 @@ export default {
       align-items: center;
       gap: 10px;
     }
-    .add-card-header-btn {
-      padding: 17px;
-      cursor: pointer;
-    }
   }
   .add-card-img {
     display: flex;
@@ -135,6 +131,7 @@ export default {
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      color: var(--color-text);
     }
     .card-form-side-inputs {
       display: flex;
@@ -145,6 +142,11 @@ export default {
         width: 100%;
         gap: 20px;
       }
+    }
+    .add-card-header-btn {
+      padding: 17px;
+      margin-top: 20px;
+      cursor: pointer;
     }
   }
 }

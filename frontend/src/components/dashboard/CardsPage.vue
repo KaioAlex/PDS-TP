@@ -1,6 +1,6 @@
 <template>
   <div class="cards">
-    <div class="cards-header">
+    <div class="cards-header" v-if="!showForm">
       <div class="cards-header__icon-circle">
         <img src="@/assets/images/cards/credit-card.png" alt="Cards" />
       </div>

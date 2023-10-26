@@ -47,6 +47,8 @@
   --color-background-cards: var(--vt-c-dark-gray);
   --color-background-cards-dark: var(--vt-c-gray-cards);
   --color-background-card-number: var(--vt-c-gray-numbers);
+  
+  --color-payment-btn: var(--vt-c-gray-menu-label);
 
   --color-title: var(--vt-c-white);
   --color-title-card: var(--vt-c-gray-card-label);

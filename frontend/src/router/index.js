@@ -66,6 +66,15 @@ const routes = [
       );
     },
   },
+  {
+    path: "/dashboard/payment",
+    name: "payment",
+    component: function () {
+      return import(
+        /* webpackChunkName: "register" */ "../views/PaymentView.vue"
+      );
+    },
+  },
 ];
 
 const router = createRouter({
