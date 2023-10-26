@@ -3,7 +3,6 @@ import inject
 from src.domain.interfaces.pedido.pedido import Pedido
 from src.domain.interfaces.pedido.pedidoInterface import PedidoInterface
 
-
 class PostPedido:
     @inject.autoparams()
     def __init__(self, pedidointerface: PedidoInterface):
