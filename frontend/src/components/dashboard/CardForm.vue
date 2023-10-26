@@ -135,6 +135,7 @@ export default {
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      color: var(--color-text);
     }
     .card-form-side-inputs {
       display: flex;

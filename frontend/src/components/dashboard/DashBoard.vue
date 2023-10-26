@@ -11,7 +11,10 @@
         <span class="dashboard-balance__value">R$ 1.232</span>
       </div>
       <div class="dashboard-buttons">
-        <div class="dashboard-buttons__btn app-btn app-btn-primary">
+        <div
+          class="dashboard-buttons__btn app-btn app-btn-primary"
+          @click="$router.push('/dashboard/payment')"
+        >
           Pagar Conta
         </div>
         <div class="dashboard-buttons__btn app-btn app-btn-alternative">
@@ -178,6 +181,7 @@ export default {
       .dashboard-buttons__btn {
         width: 50%;
         padding: 15px 0;
+        cursor: pointer;
       }
     }
     .dashboard-cards {
