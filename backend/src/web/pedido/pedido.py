@@ -2,19 +2,18 @@
 import inject
 import json
 from flask import Blueprint, jsonify, Response, request, render_template
-from src.domain.actions.pedido.get_pedidos import GetPedido
-from src.domain.actions.pedido.post_pedido import PostPedido
+from src.domain.actions.pedido.pedidos import Pedidos
 from src.domain.interfaces.pedido.pedido import Pedido
 
 @inject.autoparams()
-def pedidos(get_pedido: GetPedido, post_pedidos: PostPedido) -> Blueprint:
+def pedidos(pedidos: Pedidos) -> Blueprint:
     pedidos_blueprint = Blueprint('pedidos', __name__)
 
     @pedidos_blueprint.route('/api/get_pedidos', methods=['GET'])
     def get_pedidos() -> Response:
-        pedidos = get_pedido.execute()
+        response = pedidos.getPedidos()
         return jsonify({
-            'pedidos': pedidos
+            'pedidos': response
         })
 
     @pedidos_blueprint.route('/api/post_pedido', methods=['POST'])
@@ -31,9 +30,9 @@ def pedidos(get_pedido: GetPedido, post_pedidos: PostPedido) -> Blueprint:
             pedido_obj = Pedido(**request_data)
         except TypeError as err:
             return Response(str(err), status=400, mimetype='text/plain')
-        pedidos = post_pedidos.execute(pedido_obj)
+        response = pedidos.postPedidos(pedido_obj)
 
         return jsonify({
-            'pedidos': pedidos
+            'pedidos': response
         })
     return pedidos_blueprint
