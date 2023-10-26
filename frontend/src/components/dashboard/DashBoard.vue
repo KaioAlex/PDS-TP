@@ -137,7 +137,7 @@ export default {
     justify-content: center;
     align-items: center;
     border-radius: 486.343px;
-    background: #2e2e2e;
+    background: var(--color-background-circle);
   }
   .dashboard-left {
     display: flex;
@@ -199,11 +199,11 @@ export default {
         justify-content: center;
         align-items: center;
         border-radius: 9px;
-        background: #3d3d3d;
-        box-shadow: 15px 20px 20px 0.6px rgba(0, 0, 0, 0.59);
+        background: var(--color-background-cards-dark);
+        box-shadow: 15px 20px 20px 0.6px var(--color-shadow-black);
         margin: auto;
         .dashboard-cards-soon__label {
-          color: #fcfcfc;
+          color: var(--color-text-card);
           font-size: 28px;
           font-style: normal;
           font-weight: 400;
@@ -218,7 +218,7 @@ export default {
       .dashboard-news-circle {
         width: 270px;
         border-radius: 270px;
-        background: #d9ffff;
+        background: var(--vt-c-green-soft);
         position: absolute;
         height: 250px;
         left: -70px;
@@ -241,16 +241,16 @@ export default {
           align-items: center;
 
           border-radius: 7.428px;
-          background: #4bffb3;
+          background: var(--color-background-green);
 
-          color: #222;
+          color: var(--color-text-dashboard);
           font-size: 14px;
           font-style: normal;
           font-weight: 600;
           line-height: normal;
         }
         .dashboard-news-message {
-          color: #222;
+          color: var(--color-text-dashboard);
           font-size: 18px;
           font-style: normal;
           font-weight: 600;
@@ -263,12 +263,12 @@ export default {
         justify-content: flex-end;
         align-items: center;
         border-radius: 9.106px;
-        background: #3d3d3d;
+        background: var(--color-background-cards-dark);
         position: absolute;
         right: -50px;
         top: calc(50% - 46px);
         padding: 0 60px 0 20px;
-        box-shadow: 15px 20px 20px 0.60706px rgba(0, 0, 0, 0.59);
+        box-shadow: 15px 20px 20px 0.60706px var(--color-shadow-black);
         gap: 21px;
         .dashboard-news-right__message {
           width: 198px;
@@ -305,7 +305,7 @@ export default {
             align-items: flex-start;
             width: 60%;
             .dashboard-history-transactions-left__label {
-              color: #d9d9d9;
+              color: var(--color-text-gray);
               font-size: 18px;
               font-style: normal;
               font-weight: 400;
@@ -322,15 +322,15 @@ export default {
               font-weight: 600;
               line-height: normal;
               &.debit {
-                color: #4bffb3;
+                color: var(--color-text-primary);
               }
               &.credit {
-                color: #ff4949;
+                color: var(--color-text-credit);
               }
             }
           }
           .dashboard-history-transactions-info {
-            color: #8e8e8e;
+            color: var(--color-title-card);
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
