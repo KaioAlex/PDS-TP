@@ -8,10 +8,11 @@
         {{ getTitle }}
       </span>
     </div>
-    <PaymentCard @back="prevStep">
+    <PaymentCard @back="prevStep" :step="step">
       <FirstStep v-if="step == 1" @next="nextStep" />
-      <SecondStep v-if="step == 2" @next="nextStep" />
-      <ThirdStep v-if="step == 3" @next="nextStep" />
+      <SecondStep v-else-if="step == 2" @next="nextStep" />
+      <ThirdStep v-else-if="step == 3" @next="nextStep" />
+      <Conclusion v-else />
     </PaymentCard>
   </div>
 </template>
@@ -21,6 +22,7 @@ import PaymentCard from "./payment/PaymentCard.vue";
 import FirstStep from "./payment/FirstStep.vue";
 import SecondStep from "./payment/SecondStep.vue";
 import ThirdStep from "./payment/ThirdStep.vue";
+import Conclusion from "./payment/Conclusion.vue";
 
 export default {
   name: "CardsPage",
@@ -29,6 +31,7 @@ export default {
     FirstStep,
     SecondStep,
     ThirdStep,
+    Conclusion,
   },
   data() {
     return {
@@ -41,8 +44,10 @@ export default {
         return "Insira os dados do destinatário";
       } else if (this.step == 2) {
         return "Insira o valor que deseja transferir";
+      } else if (this.step == 3) {
+        return "Confira os dados da transferência";
       }
-      return "Confira os dados da trsnferencia";
+      return "Concluido";
     },
   },
   methods: {

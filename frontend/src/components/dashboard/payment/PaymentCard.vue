@@ -1,7 +1,7 @@
 <template>
   <div class="payment-card">
     <div class="payment-card-header">
-      <div class="payment-card-header-back">
+      <div class="payment-card-header-back" v-if="step !== 4">
         <img
           class="payment-card-header__close"
           src="@/assets/images/icons/arrow-back.png"
@@ -17,6 +17,9 @@
 <script>
 export default {
   name: "PaymentCard",
+  props: {
+    step: Number,
+  },
 };
 </script>
 
