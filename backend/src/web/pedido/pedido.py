@@ -1,3 +1,4 @@
+# Adaptador REST
 import inject
 import json
 from flask import Blueprint, jsonify, Response, request, render_template
