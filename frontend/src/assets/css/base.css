@@ -26,7 +26,7 @@
   --vt-c-green-primary: #4BFFB3;
   --vt-c-green-bg: #050605;
   --vt-c-green-shadow: rgba(75, 255, 179, 0.30);
-  --vt-c-green-shadow: rgba(75, 255, 179, 0.30);
+  --vt-c-green-shadow-2: rgba(75, 255, 179, 0.35);
   --vt-c-green-soft: #d9ffff;
 
   --vt-c-text-light: var(--vt-c-black);
@@ -45,10 +45,8 @@
   --color-background-header: var(--vt-c-gray-header);
   --color-background-circle: var(--vt-c-gray-header);
   --color-background-cards: var(--vt-c-dark-gray);
+  --color-background-cards-dark: var(--vt-c-gray-cards);
   --color-background-card-number: var(--vt-c-gray-numbers);
-  
-  --color-shadow: var(--vt-c-black-shadow);
-  --color-shadow-2: var(--vt-c-black-shadow-2);
 
   --color-title: var(--vt-c-white);
   --color-title-card: var(--vt-c-gray-card-label);
@@ -73,6 +71,8 @@
   --color-background-btn-alternative: var(--vt-c-white);
 
   --color-shadow: var(--vt-c-green-shadow);
+  --color-shadow-black: var(--vt-c-black-shadow);
+  --color-shadow-black-2: var(--vt-c-black-shadow-2);
   --color-card: var(--vt-c-black-transparent);
 }
 

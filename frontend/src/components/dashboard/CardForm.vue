@@ -73,7 +73,7 @@ export default {
 <style lang="scss" scoped>
 .add-card {
   border-radius: 15px;
-  background: var(--color-background-cards);
+  background: var(--color-background-cards-dark);
   padding: 30px;
   .add-card-header {
     display: flex;

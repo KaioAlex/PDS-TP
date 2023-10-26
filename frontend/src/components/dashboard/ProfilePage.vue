@@ -71,7 +71,7 @@ export default {
     align-items: center;
     gap: 24px;
     background-color: var(--color-background-cards);
-    box-shadow: 1px 1px 20px 1px var(--color-shadow-2);
+    box-shadow: 1px 1px 20px 1px var(--color-shadow-black-2);
     border-radius: 15px;
     padding: 42px 25px;
     .profile-icon-circle {
@@ -101,7 +101,7 @@ export default {
     gap: 40px;
     padding: 53px 52px;
     background-color: var(--color-background-cards);
-    box-shadow: 1px 1px 20px 1px var(--color-shadow-2);
+    box-shadow: 1px 1px 20px 1px var(--color-shadow-black-2);
     border-radius: 15px;
     .profile-info-section {
       display: flex;

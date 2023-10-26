@@ -199,8 +199,8 @@ export default {
         justify-content: center;
         align-items: center;
         border-radius: 9px;
-        background: var(--color-background-cards);
-        box-shadow: 15px 20px 20px 0.6px var(--color-shadow);
+        background: var(--color-background-cards-dark);
+        box-shadow: 15px 20px 20px 0.6px var(--color-shadow-black);
         margin: auto;
         .dashboard-cards-soon__label {
           color: var(--color-text-card);
@@ -263,12 +263,12 @@ export default {
         justify-content: flex-end;
         align-items: center;
         border-radius: 9.106px;
-        background: var(--color-background-cards);
+        background: var(--color-background-cards-dark);
         position: absolute;
         right: -50px;
         top: calc(50% - 46px);
         padding: 0 60px 0 20px;
-        box-shadow: 15px 20px 20px 0.60706px var(--color-shadow);
+        box-shadow: 15px 20px 20px 0.60706px var(--color-shadow-black);
         gap: 21px;
         .dashboard-news-right__message {
           width: 198px;

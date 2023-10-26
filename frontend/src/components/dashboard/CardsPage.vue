@@ -95,7 +95,7 @@ export default {
   .cards-header {
     width: 100%;
     border-radius: 15px;
-    background-color: var(--color-background-cards);
+    background-color: var(--color-background-cards-dark);
     display: flex;
     align-items: center;
     padding: 25px 43px;
