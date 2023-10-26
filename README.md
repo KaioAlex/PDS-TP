@@ -29,7 +29,7 @@
 
 * **Tecnologias**:
 
-    FrontEnd: JavaScript com framework Vue JS
+    FrontEnd: JavaScript com framework Vue JS, npm 10.1.0
 
     BackEnd: Python com framework Flask
 

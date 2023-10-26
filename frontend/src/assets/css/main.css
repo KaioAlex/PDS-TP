@@ -1,5 +1,9 @@
 @import './base.css';
 
+main {
+  display: flex;
+}
+
 input {
   display: flex;
   padding: 11px 16px;
@@ -11,7 +15,7 @@ input {
   background: var(--color-input-background);
 }
 
-input:focus {
+input:focus, textarea:focus {
   box-shadow: 0 0 0 0;
   border: 0 none;
   outline: 0;
@@ -23,6 +27,33 @@ input:focus {
   max-width: 1160px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.app-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+
+  color: var(--color-text-primary);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.app-btn-primary {
+  background: var(--color-background-app-btn-primary);
+}
+
+.app-btn-alternative {
+  background: var(--color-background-app-btn-alternative);
+}
+
+.app-btn-alert {
+  background: var(--color-background-app-btn-alert);
+  color: white;
 }
 
 .btn {
