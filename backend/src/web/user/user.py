@@ -2,7 +2,7 @@
 import inject
 import json
 from flask import Blueprint, jsonify, Response, request, render_template
-from src.domain.actions.user.user import Users
+from src.domain.actions.user.users import Users
 from src.domain.interfaces.pedido.pedido import Pedido
 
 @inject.autoparams()
@@ -15,3 +15,5 @@ def user(users: Users) -> Blueprint:
         return jsonify({
             'pedidos': response
         })
+    
+    return user_blueprint

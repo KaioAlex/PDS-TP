@@ -19,9 +19,10 @@ def configure_inject(application: Flask) -> None:
 
 #conection with db
 
-conn = ''
+conn = None
 
 def connect_to_db():
+    global conn
     try:
         conn = mysql.connector.connect(**db_config)
         print("bd connected with sucess\n")
