@@ -19,7 +19,11 @@ class UserInterface():
 
         cursor.close()
 
-        return user
+        if user == '':
+            return None
+
+        else:
+            return user
 
     @abstractmethod
     def getUsersList(self) -> List[User]:   
@@ -50,11 +54,11 @@ class UserInterface():
         conn.commit()
 
         # Execute a consulta na tabela "users"
-        cursor.execute("SELECT * FROM bdSplitWallet.users;")
+        # cursor.execute("SELECT * FROM bdSplitWallet.users;")
         
         # Recupere os resultados da consulta
-        users = cursor.fetchall()
+        # users = cursor.fetchall()
 
         cursor.close()
 
-        return users
+        return
