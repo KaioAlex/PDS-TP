@@ -12,5 +12,6 @@ class Friendships:
         return self.__pedinterface.getFriendshipsList()
     
     def postFriendships(self, friendship: Friendship) -> List[Friendship]:
+        print(friendship)
         return self.__pedinterface.post_friendship(friendship)
 
