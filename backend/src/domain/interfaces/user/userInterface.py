@@ -21,10 +21,9 @@ class UserInterface():
         for user in users:
             print(user)
 
-        
         cursor.close()
 
-    
+        return users
 
     @abstractmethod
     def post_user(self, pedido: User) -> List[User]:

@@ -8,7 +8,6 @@ from src.domain.usecase.pedido.pedido import PedidoUseCase
 from src.bd_config import db_config
 import mysql.connector
 
-
 def configure_inject(application: Flask) -> None:
     def config(binder: inject.Binder) -> None:
         binder.bind(DatabaseInterface, MongoAdapter)
@@ -16,9 +15,7 @@ def configure_inject(application: Flask) -> None:
 
     inject.configure(config)
 
-
 #conection with db
-
 conn = None
 
 def connect_to_db():

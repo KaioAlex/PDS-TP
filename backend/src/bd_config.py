@@ -1,7 +1,7 @@
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'password',
+    'password': 'Root@2023',
     'database': 'bdSplitWallet',
 }
 

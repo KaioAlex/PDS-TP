@@ -13,7 +13,7 @@ def user(users: Users) -> Blueprint:
     def get_user() -> Response:
         response = users.getUsers()
         return jsonify({
-            'pedidos': response
+            'users': response
         })
     
     return user_blueprint
