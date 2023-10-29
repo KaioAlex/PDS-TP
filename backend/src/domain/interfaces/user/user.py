@@ -6,4 +6,9 @@ from dataclasses_json import dataclass_json, LetterCase
 @dataclass(init=True)
 class User:
     id: int
-    title: str
+    name: str
+    username: str
+    email: str
+    birth: str
+    balance: float
+    score: int

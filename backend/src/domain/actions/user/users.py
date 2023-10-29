@@ -8,6 +8,9 @@ class Users:
     def __init__(self, userinterface: UserInterface):
         self.__userinterface = userinterface
 
+    def getUser(self, id) -> User:
+        return self.__userinterface.getUser(id)
+
     def getUsers(self) -> List[User]:
         return self.__userinterface.getUsersList()
     
