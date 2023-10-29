@@ -9,14 +9,14 @@ from src.domain.interfaces.friendship.friendship import Friendship
 def friendships(friendships: Friendships) -> Blueprint:
     friendships_blueprint = Blueprint('friendships', __name__)
 
-    @friendships_blueprint.route('/api/get_friendships', methods=['GET'])
+    @friendships_blueprint.route('/api/friendships', methods=['GET'])
     def get_friendships() -> Response:
         response = friendships.getFriendships()
         return jsonify({
             'friendships': response
         })
 
-    @friendships_blueprint.route('/api/post_Friendship', methods=['POST'])
+    @friendships_blueprint.route('/api/friendship', methods=['POST'])
     def post_friendship() -> Response:
         """ 
             Pega o conteudo do body do request, deve vir no type json

@@ -5,5 +5,5 @@ from dataclasses_json import dataclass_json, LetterCase
 @dataclass_json(letter_case=LetterCase.CAMEL)
 @dataclass(init=True)
 class Friendship:
-    id: int
-    title: str
+    user_id1: int
+    user_id2: int
