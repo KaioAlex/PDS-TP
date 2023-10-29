@@ -28,3 +28,17 @@ class FriendshipInterface(ABC):
         cursor.close()
 
         return 
+    
+    def deleteFriendship(self, user_id: int, friend_id: int):
+        conn = get_conn()
+        cursor = get_cursor()
+
+        # Faz o delete no banco
+        query = f"DELETE FROM friendship WHERE (user_id1 = {user_id} AND user_id2 = {friend_id}) OR (user_id1 = {friend_id} AND user_id2 = {user_id});"
+        cursor.execute(query)
+        conn.commit()
+        
+        cursor.close()
+
+        return "message: user deleted with sucess"
+

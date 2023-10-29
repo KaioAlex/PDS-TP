@@ -1,7 +1,7 @@
 # Adaptador REST
 import inject
 import json
-from flask import Blueprint, jsonify, Response, request, render_template
+from flask import Blueprint, jsonify, Response, request, render_template, g
 from src.domain.actions.friendship.friendships import Friendships
 from src.domain.interfaces.friendship.friendship import Friendship
 
@@ -35,4 +35,14 @@ def friendships(friendships: Friendships) -> Blueprint:
         return jsonify({
             'friendships': response
         })
+        
+    @friendships_blueprint.route('/api/friendships/<user_id>/<friend_id>', methods=['DELETE'])
+    def delete_friendship(user_id, friend_id) -> Response:
+        response = friendships.deleteFriendships(user_id,friend_id)
+        return jsonify({
+            'friendships': response
+        })
+        
     return friendships_blueprint
+
+
