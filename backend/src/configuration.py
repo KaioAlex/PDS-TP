@@ -28,3 +28,6 @@ def connect_to_db():
         
 def get_cursor():
     return conn.cursor()
+
+def get_conn():
+    return conn
