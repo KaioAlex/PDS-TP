@@ -7,6 +7,21 @@ from src.configuration import get_conn
 
 class UserInterface():
     @abstractmethod
+    def getUser(self, id) -> User:   
+        cursor = get_cursor()
+
+        # Execute a consulta na tabela "users"
+        query = f"SELECT * FROM bdSplitWallet.users WHERE id = {id};"
+        cursor.execute(query)
+
+        # Recupere os resultados da consulta
+        user = cursor.fetchone()
+
+        cursor.close()
+
+        return user
+
+    @abstractmethod
     def getUsersList(self) -> List[User]:   
         cursor = get_cursor()
 
