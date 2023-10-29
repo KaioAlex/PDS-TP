@@ -8,8 +8,8 @@ class Friendships:
     def __init__(self, friendshipinterface: FriendshipInterface):
         self.__pedinterface = friendshipinterface
 
-    def getFriendships(self) -> List[Friendship]:
-        return self.__pedinterface.getFriendshipsList()
+    def getFriendships(self, id: int) -> List[int]:
+        return self.__pedinterface.getFriendshipsList(id)
     
     def postFriendships(self, friendship: Friendship) -> List[Friendship]:
         print(friendship)

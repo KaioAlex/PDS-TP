@@ -9,9 +9,9 @@ from src.domain.interfaces.friendship.friendship import Friendship
 def friendships(friendships: Friendships) -> Blueprint:
     friendships_blueprint = Blueprint('friendships', __name__)
 
-    @friendships_blueprint.route('/api/friendships', methods=['GET'])
-    def get_friendships() -> Response:
-        response = friendships.getFriendships()
+    @friendships_blueprint.route('/api/friendships/<id>', methods=['GET'])
+    def get_friendships(id) -> Response:
+        response = friendships.getFriendships(id)
         return jsonify({
             'friendships': response
         })
