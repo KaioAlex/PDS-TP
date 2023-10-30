@@ -11,19 +11,19 @@ class CardInterface():
         cursor = get_cursor()
 
         # Execute a consulta na tabela "users"
-        query = f"SELECT * FROM bdSplitWallet.users WHERE id = {id};"
+        query = f"SELECT * FROM bdSplitWallet.cards WHERE id_user = {id};"
         cursor.execute(query)
 
         # Recupere os resultados da consulta
-        user = cursor.fetchone()
+        cards = cursor.fetchall()
 
         cursor.close()
 
-        if user == '':
+        if cards == '':
             return None
 
         else:
-            return user
+            return cards
 
     @abstractmethod
     def getCardList(self) -> List[Card]:   
@@ -62,3 +62,16 @@ class CardInterface():
         cursor.close()
 
         return
+    
+    def deleteCard(self, id: int):
+        conn = get_conn()
+        cursor = get_cursor()
+
+        # Faz o delete no banco
+        query = f"DELETE FROM cards WHERE id = {id};"
+        cursor.execute(query)
+        conn.commit()
+        
+        cursor.close()
+
+        return "message: card deleted with sucess"
