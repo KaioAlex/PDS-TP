@@ -1,6 +1,6 @@
 <template>
   <div class="friends">
-    <div class="friends-list">
+    <div class="friends-list" v-if="!showForm">
       <div v-for="(friend, index) in friends" :key="index" class="friend">
         <div class="friend__icon-circle">
           <img
@@ -15,7 +15,22 @@
         <div class="friend__actions app-btn app-btn-alert">Remove</div>
       </div>
     </div>
-    <div class="friends-add__btn app-btn app-btn-primary">
+    <div class="friends-form" v-else>
+      <label class="friends-form__label" for="username"
+        >ID ou nome de usuário</label
+      >
+      <input
+        v-model="userStr"
+        class="friends-form__input"
+        type="text"
+        name="username"
+        placeholder="ID ou nome de usuário"
+      />
+    </div>
+    <div
+      class="friends-add__btn app-btn app-btn-primary"
+      @click="!showForm ? form() : addFriend()"
+    >
       <img src="@/assets/images/icons/add.png" alt="Add" />
       Adicionar amigo
     </div>
@@ -27,33 +42,55 @@ export default {
   name: "FriendsPage",
   data() {
     return {
-      friends: [
-        {
-          name: "Fulano",
-          username: "fulano123",
-        },
-        {
-          name: "Ciclano",
-          username: "ciclano456",
-        },
-        {
-          name: "Beltrano",
-          username: "beltrano789",
-        },
-        {
-          name: "Fulano",
-          username: "fulano123",
-        },
-        {
-          name: "Ciclano",
-          username: "ciclano456",
-        },
-        {
-          name: "Beltrano",
-          username: "beltrano789",
-        },
-      ],
+      friends: [],
+      userStr: "",
+      newFriend: {},
+      showForm: false,
     };
+  },
+  methods: {
+    form() {
+      this.showForm = true;
+    },
+    listFriends() {
+      this.$store
+        .dispatch("getFriends", this.$store.getters.getUserId)
+        .then((res) => {
+          this.friends = res ?? [];
+        });
+    },
+    findFriend() {
+      this.$store.dispatch("getUserByUsername", this.userStr).then((res) => {
+        this.newFriend = res ?? [];
+        const body = {
+          user_id1: this.$store.getters.getUserId,
+          user_id2: this.newFriend.id,
+        };
+
+        this.$store.dispatch("addCard", body).then((success) => {
+          this.showForm = false;
+          if (success) {
+            this.$notify({
+              title: "Friend",
+              text: "New friend has been added to your list!",
+              type: "success",
+            });
+          } else {
+            this.$notify({
+              title: "Friend error",
+              text: "Something went wrong, please try again",
+              type: "error",
+            });
+          }
+        });
+      });
+    },
+    async addFriend() {
+      await this.findFriend();
+    },
+  },
+  mounted() {
+    this.listFriends();
   },
 };
 </script>
@@ -118,6 +155,7 @@ export default {
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        cursor: pointer;
       }
     }
   }
@@ -130,6 +168,35 @@ export default {
     gap: 29px;
     margin-top: 24px;
     padding: 17px;
+    cursor: pointer;
+  }
+  .friends-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 15px;
+    background: var(--color-background-cards-dark);
+    padding: 30px;
+    .friends-form__label {
+      color: var(--color-text-menu);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    .friends-form__input {
+      width: 100%;
+      height: 50px;
+      border-radius: 15px;
+      border: none;
+      padding: 0 20px;
+      background: var(--color-background-gray-input);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      color: var(--color-text);
+    }
   }
 }
 </style>

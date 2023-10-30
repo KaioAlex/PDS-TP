@@ -5,6 +5,7 @@ const API_GATEWAY = "http://127.0.0.1:5000/api";
 const _user = "/user";
 const _card = "/card";
 const _transaction = "/transaction";
+const _friendship = "/friendship";
 
 export default createStore({
   state: {
@@ -210,6 +211,60 @@ export default createStore({
     deleteCartoes(context, payload) {
       return axios
         .delete(`${API_GATEWAY}${_card}/${payload}`, {
+          "Access-Control-Allow-Origin": "*",
+        })
+        .then((res) => {
+          if (res.status == 200) {
+            return true;
+          }
+          return false;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getFriends(context, payload) {
+      return axios
+        .get(`${API_GATEWAY}${_friendship}/${payload}`, {
+          "Access-Control-Allow-Origin": "*",
+        })
+        .then((res) => {
+          if (res.status == 200) {
+            const friends = res.data.friendships;
+            const result = [];
+
+            friends.forEach((element) => {
+              result.push({
+                id: element[0],
+                name: element[1],
+              });
+            });
+
+            return result;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    addFriend(context, payload) {
+      return axios
+        .post(`${API_GATEWAY}${_card}`, payload, {
+          "Access-Control-Allow-Origin": "*",
+        })
+        .then((res) => {
+          if (res.status == 200) {
+            return true;
+          }
+          return false;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    deleteFriend(context, payload) {
+      return axios
+        .delete(`${API_GATEWAY}${_friendship}/${payload}`, {
           "Access-Control-Allow-Origin": "*",
         })
         .then((res) => {
