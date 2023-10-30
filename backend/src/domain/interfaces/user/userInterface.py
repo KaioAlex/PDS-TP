@@ -66,16 +66,12 @@ class UserInterface():
     def post_user(self, user: User) -> List[User]:
         conn = get_conn()
         cursor = get_cursor()
+        query =  f"INSERT INTO bdSplitWallet.users (name, username, email, birth, balance, score, password) VALUES('{user.name}','{user.username}','{user.email}','{user.birth}','{user.balance}','{user.score}','{user.password}');"
 
         # Faz o post no banco
-        cursor.execute(''' INSERT INTO users (id, name, username, email, birth, balance, score) VALUES(%s,%s,%s,%s,%s,%s,%s)''',(user.id, user.name, user.username, user.email, user.birth, user.balance, user.score))
-        conn.commit()
-
-        # Execute a consulta na tabela "users"
-        # cursor.execute("SELECT * FROM bdSplitWallet.users;")
+        cursor.execute(query)
         
-        # Recupere os resultados da consulta
-        # users = cursor.fetchall()
+        conn.commit()
 
         cursor.close()
 
