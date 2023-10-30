@@ -5,10 +5,11 @@ from dataclasses_json import dataclass_json, LetterCase
 @dataclass_json(letter_case=LetterCase.CAMEL)
 @dataclass(init=True)
 class User:
-    id: int
     name: str
     username: str
     email: str
     birth: str
     balance: float
     score: int
+    password: str = None
+    id: int = None

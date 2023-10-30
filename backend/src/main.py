@@ -15,7 +15,7 @@ configure_inject(app)
 app.register_blueprint(user())
 app.register_blueprint(card())
 app.register_blueprint(friendships())
-app.register_blueprint(transactions())
+app.register_blueprint(transactions()) 
 
 
 connect_to_db()
