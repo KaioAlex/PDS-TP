@@ -9,9 +9,17 @@ from src.domain.interfaces.card.card import Card
 def card(cards: Cards) -> Blueprint:
     card_blueprint = Blueprint('card', __name__)
 
-    @card_blueprint.route('/api/card/<id>', methods=['GET'])
-    def get_card(id) -> Response:
-        response = cards.getCard(id)
+    @card_blueprint.route('/api/card/<id_card>', methods=['GET'])
+    def get_card(id_card) -> Response:
+        response = cards.getCard(id_card)
+
+        return jsonify({
+            'card': response
+        })
+
+    @card_blueprint.route('/api/cards/<id_user>', methods=['GET'])
+    def get_card_list(id_user) -> Response:
+        response = cards.getCardList(id_user)
 
         return jsonify({
             'cards': response

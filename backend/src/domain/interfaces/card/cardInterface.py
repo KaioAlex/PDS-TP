@@ -7,12 +7,29 @@ from src.configuration import get_conn
 
 class CardInterface():
     @abstractmethod
-    def getCard(self, id) -> Card:   
+    def getCard(self, id_card) -> Card:   
         cursor = get_cursor()
 
         # Execute a consulta na tabela "users"
-        query = f"SELECT * FROM bdSplitWallet.cards WHERE id_user = {id};"
-        cursor.execute(query)
+        cursor.execute(f"SELECT * FROM bdSplitWallet.cards WHERE id = {id_card};")
+
+        # Recupere os resultados da consulta
+        card = cursor.fetchone()
+
+        cursor.close()
+
+        if card == '':
+            return None
+
+        else:
+            return card
+
+    @abstractmethod
+    def getCardList(self, id_user) -> List[Card]:   
+        cursor = get_cursor()
+
+        # Execute a consulta na tabela "users"
+        cursor.execute(f"SELECT * FROM bdSplitWallet.cards WHERE id_user = {id_user};")
 
         # Recupere os resultados da consulta
         cards = cursor.fetchall()
@@ -24,25 +41,6 @@ class CardInterface():
 
         else:
             return cards
-
-    @abstractmethod
-    def getCardList(self) -> List[Card]:   
-        cursor = get_cursor()
-
-        # Execute a consulta na tabela "users"
-        query = "SELECT * FROM bdSplitWallet.users;"
-        cursor.execute(query)
-
-        # Recupere os resultados da consulta
-        users = cursor.fetchall()
-
-        # Faça algo com os resultados, como imprimir na tela
-        for user in users:
-            print(user)
-
-        cursor.close()
-
-        return users
 
     @abstractmethod
     def post_card(self, card: Card) -> List[Card]:

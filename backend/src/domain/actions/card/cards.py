@@ -8,9 +8,12 @@ class Cards:
     def __init__(self, cardinterface: CardInterface):
         self.__cardinterface = cardinterface
 
-    def getCard(self, id) -> Card:
-        return self.__cardinterface.getCard(id)
-    
+    def getCard(self, id_card) -> Card:
+        return self.__cardinterface.getCard(id_card)
+
+    def getCardList(self, id_user) -> List[Card]:
+        return self.__cardinterface.getCardList(id_user)
+           
     def postCards(self, card: Card) -> List[Card]:
         return self.__cardinterface.post_card(card)
     
