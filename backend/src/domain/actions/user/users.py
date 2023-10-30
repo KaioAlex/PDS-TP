@@ -10,6 +10,9 @@ class Users:
 
     def getUser(self, id) -> User:
         return self.__userinterface.getUser(id)
+    
+    def getLogin(self, username, password) -> User:
+        return self.__userinterface.getLogin(username, password)
 
     def getUsers(self) -> List[User]:
         return self.__userinterface.getUsersList()
