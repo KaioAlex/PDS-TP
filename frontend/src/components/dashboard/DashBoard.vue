@@ -124,9 +124,11 @@ export default {
   },
   mounted() {
     this.getBalance();
-    this.$store.dispatch("getTransactions", 1).then((res) => {
-      this.transactions = res ?? [];
-    });
+    this.$store
+      .dispatch("getTransactions", this.$store.getters.getUserId)
+      .then((res) => {
+        this.transactions = res ?? [];
+      });
   },
 };
 </script>
