@@ -40,27 +40,27 @@ export default {
             "Para criar uma conta, basta clicar no botão “Cadastre-se” na tela inicial do aplicativo e preencher os dados solicitados.",
         },
         {
-          question: "Como faço para criar uma conta?",
+          question: "Como faço minha primeira transferencia?",
           answer:
             "Para criar uma conta, basta clicar no botão “Cadastre-se” na tela inicial do aplicativo e preencher os dados solicitados.",
         },
         {
-          question: "Como faço para criar uma conta?",
+          question: "Como vejo meu extrato?",
           answer:
             "Para criar uma conta, basta clicar no botão “Cadastre-se” na tela inicial do aplicativo e preencher os dados solicitados.",
         },
         {
-          question: "Como faço para criar uma conta?",
+          question: "Como adiciono meus amigos?",
           answer:
             "Para criar uma conta, basta clicar no botão “Cadastre-se” na tela inicial do aplicativo e preencher os dados solicitados.",
         },
         {
-          question: "Como faço para criar uma conta?",
+          question: "Como cadastro meu cartão?",
           answer:
             "Para criar uma conta, basta clicar no botão “Cadastre-se” na tela inicial do aplicativo e preencher os dados solicitados.",
         },
         {
-          question: "Como faço para criar uma conta?",
+          question: "Como apago um cartão que eu cadastrei?",
           answer:
             "Para criar uma conta, basta clicar no botão “Cadastre-se” na tela inicial do aplicativo e preencher os dados solicitados.",
         },
