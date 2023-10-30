@@ -48,7 +48,7 @@ class CardInterface():
         cursor = get_cursor()
 
         # Faz o post no banco
-        cursor.execute(''' INSERT INTO cards (id, id_user, username, num_card, card_validity, security_code) VALUES(%s,%s,%s,%s,%s,%s)''',(card.id, card.id_user, card.username, card.num_card, card.card_validity, card.security_code))
+        cursor.execute(''' INSERT INTO cards (id_user, username, num_card, card_validity, security_code) VALUES(%s,%s,%s,%s,%s)''',(card.id_user, card.username, card.num_card, card.card_validity, card.security_code))
         conn.commit()
 
         # Execute a consulta na tabela "users"
