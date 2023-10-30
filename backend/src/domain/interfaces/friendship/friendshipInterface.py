@@ -27,7 +27,7 @@ class FriendshipInterface(ABC):
         
         cursor.close()
 
-        return 
+        return friendship
     
     def deleteFriendship(self, user_id: int, friend_id: int):
         conn = get_conn()

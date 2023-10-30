@@ -51,7 +51,7 @@ def user(users: Users) -> Blueprint:
         response = users.postUsers(user_obj)
 
         return jsonify({
-            'users': None
+            'users': response
         })
     
     return user_blueprint
