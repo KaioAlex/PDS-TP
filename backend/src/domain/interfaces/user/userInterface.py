@@ -85,7 +85,7 @@ class UserInterface():
         return users
 
     @abstractmethod
-    def post_user(self, user: User) -> List[User]:
+    def post_user(self, user: User) -> User:
         conn = get_conn()
         cursor = get_cursor()
         query =  f"INSERT INTO bdSplitWallet.users (name, username, email, birth, balance, score, password) VALUES('{user.name}','{user.username}','{user.email}','{user.birth}','{user.balance}','{user.score}','{user.password}');"
@@ -97,7 +97,7 @@ class UserInterface():
 
         cursor.close()
 
-        return
+        return user
     
     def updateUserTransfer(self, user: User) -> str:
         conn = get_conn()

@@ -33,7 +33,7 @@ class TransactionInterface(ABC):
         
         self.makeUsersTransfer(tran)
 
-        return "transations inserted with sucess"
+        return tran
     
     def makeUsersTransfer(self, tran:Transaction):
         users_instance = Users() 

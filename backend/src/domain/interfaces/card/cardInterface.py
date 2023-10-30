@@ -43,7 +43,7 @@ class CardInterface():
             return cards
 
     @abstractmethod
-    def post_card(self, card: Card) -> List[Card]:
+    def post_card(self, card: Card) -> Card:
         conn = get_conn()
         cursor = get_cursor()
 
@@ -59,7 +59,7 @@ class CardInterface():
 
         cursor.close()
 
-        return
+        return card
     
     def deleteCard(self, id: int):
         conn = get_conn()
