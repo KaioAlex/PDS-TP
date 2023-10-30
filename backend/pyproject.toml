@@ -10,6 +10,7 @@ Flask = "^2.1.2"
 flask-restx = "^0.5.1"
 dataclasses-json = "^0.5.7"
 Inject = "3.5.4"
+flask-cors = "^4.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"

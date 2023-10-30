@@ -17,7 +17,7 @@ def card(cards: Cards) -> Blueprint:
             'card': response
         })
 
-    @card_blueprint.route('/api/cards/<id_user>', methods=['GET'])
+    @card_blueprint.route('/api/card/<id_user>', methods=['GET'])
     def get_card_list(id_user) -> Response:
         response = cards.getCardList(id_user)
 

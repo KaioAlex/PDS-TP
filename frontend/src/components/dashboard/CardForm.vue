@@ -15,45 +15,55 @@
       <img src="@/assets/images/cards/create-card.png" alt="Cards" />
     </div>
     <div class="card-form">
-      <label class="card-form__label" for="password">Número do cartão</label>
+      <label class="card-form__label" for="num_card">Número do cartão</label>
       <input
+        v-model="form.num_card"
         class="card-form__input"
-        type="password"
-        name="password"
+        type="text"
+        name="num_card"
+        v-maska="'#### #### #### ####'"
         placeholder="Número do cartão"
       />
-      <label class="card-form__label" for="password">Nome no cartão</label>
+      <label class="card-form__label" for="username">Nome no cartão</label>
       <input
+        v-model="form.username"
         class="card-form__input"
-        type="password"
-        name="password"
+        type="text"
+        name="username"
         placeholder="Nome no cartão"
       />
       <div class="card-form-side-inputs">
         <div class="card-form-input-block">
-          <label class="card-form__label" for="password"
+          <label class="card-form__label" for="card_validity"
             >Data de vencimento</label
           >
           <input
+            v-model="form.card_validity"
             class="card-form__input"
-            type="password"
-            name="password"
+            type="text"
+            name="card_validity"
+            v-maska="'##/##'"
             placeholder="Data de vencimento"
           />
         </div>
         <div class="card-form-input-block">
-          <label class="card-form__label" for="password"
+          <label class="card-form__label" for="security_code"
             >Código de segurança</label
           >
           <input
+            v-model="form.security_code"
             class="card-form__input"
-            type="password"
-            name="password"
+            type="text"
+            name="security_code"
+            maxlength="3"
             placeholder="Código de segurança"
           />
         </div>
       </div>
-      <div class="add-card-header-btn app-btn app-btn-primary">
+      <div
+        class="add-card-header-btn app-btn app-btn-primary"
+        @click="createNewCard"
+      >
         Adicionar Cartão
       </div>
     </div>
@@ -61,12 +71,33 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "CardForm",
   data: function () {
-    return {};
+    return {
+      form: {
+        id_user: 1,
+        num_card: "",
+        username: "",
+        card_validity: "",
+        security_code: "",
+      },
+    };
   },
-  props: {},
+  computed: {
+    ...mapGetters(),
+    userId() {
+      return this.$store.state.user.id;
+    },
+  },
+  methods: {
+    createNewCard() {
+      debugger;
+      this.$store.dispatch("addCard", this.form);
+    },
+  },
 };
 </script>
 

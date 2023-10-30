@@ -30,7 +30,7 @@ def user(users: Users) -> Blueprint:
             'user': response
         })
 
-    @user_blueprint.route('/api/users', methods=['GET'])
+    @user_blueprint.route('/api/user', methods=['GET'])
     def get_users() -> Response:
         response = users.getUsers()
         return jsonify({

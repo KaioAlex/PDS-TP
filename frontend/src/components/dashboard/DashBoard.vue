@@ -46,7 +46,7 @@
     <div class="dashboard-right">
       <div class="dashboard-history dashboard-block">
         <span class="dashboard-history__label">Extrato</span>
-        <div class="dashboard-history-transactions">
+        <div class="dashboard-history-transactions" v-if="transactions.length">
           <div
             v-for="(transaction, index) in transactions"
             :key="index"
@@ -79,31 +79,26 @@
             </div>
           </div>
         </div>
+        <div class="empty-dashboard" v-else>
+          <h2>Nenhuma transação realizada!</h2>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "DashBoard",
   data() {
     return {
-      transactions: [
-        {
-          isDebit: true,
-          name: "Juan Sosa",
-          date: "09 de Julho",
-          value: "$590,00",
-        },
-        {
-          isDebit: false,
-          name: "Julieta Carolina Sosa",
-          date: "07 de Julho",
-          value: "-$265,00",
-        },
-      ],
+      transactions: [],
     };
+  },
+  computed: {
+    ...mapGetters(["getUser"]),
   },
   methods: {
     getLabel(transaction) {
@@ -115,6 +110,12 @@ export default {
       const prefix = transaction.isDebit ? "De" : "Para";
       return `${prefix} ${transaction.name}`;
     },
+  },
+  mounted() {
+    this.$store.dispatch("getTransactions", 1).then((res) => {
+      debugger;
+      this.transactions = res ?? [];
+    });
   },
 };
 </script>
@@ -294,6 +295,12 @@ export default {
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+      }
+      .empty-dashboard {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 50px;
       }
       .dashboard-history-transactions {
         margin-top: 22px;

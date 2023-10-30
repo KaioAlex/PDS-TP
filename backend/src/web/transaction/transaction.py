@@ -9,7 +9,7 @@ from src.domain.interfaces.transaction.transaction import Transaction
 def transactions(transactions: Transactions) -> Blueprint:
     transactions_blueprint = Blueprint('transactions', __name__)
     
-    @transactions_blueprint.route('/api/transactions/<id>', methods=['GET'])
+    @transactions_blueprint.route('/api/transaction/<id>', methods=['GET'])
     def getTransactions(id) -> Response:
         response = transactions.getTransactions(id)
         return jsonify({
@@ -17,7 +17,7 @@ def transactions(transactions: Transactions) -> Blueprint:
         })
         
 
-    @transactions_blueprint.route('/api/transactions', methods=['POST'])
+    @transactions_blueprint.route('/api/transaction', methods=['POST'])
     def post_transactions() -> Response:
         """ 
             Pega o conteudo do body do request, deve vir no type json

@@ -9,7 +9,7 @@ from src.domain.interfaces.friendship.friendship import Friendship
 def friendships(friendships: Friendships) -> Blueprint:
     friendships_blueprint = Blueprint('friendships', __name__)
 
-    @friendships_blueprint.route('/api/friendships/<id>', methods=['GET'])
+    @friendships_blueprint.route('/api/friendship/<id>', methods=['GET'])
     def get_friendships(id) -> Response:
         response = friendships.getFriendships(id)
         return jsonify({
@@ -36,7 +36,7 @@ def friendships(friendships: Friendships) -> Blueprint:
             'friendships': response
         })
         
-    @friendships_blueprint.route('/api/friendships/<user_id>/<friend_id>', methods=['DELETE'])
+    @friendships_blueprint.route('/api/friendship/<user_id>/<friend_id>', methods=['DELETE'])
     def delete_friendship(user_id, friend_id) -> Response:
         response = friendships.deleteFriendships(user_id,friend_id)
         return jsonify({

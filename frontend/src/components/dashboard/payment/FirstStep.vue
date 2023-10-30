@@ -4,6 +4,7 @@
       >ID ou nome de usuário</label
     >
     <input
+      v-model="user"
       class="first-step-form__input"
       type="password"
       name="password"
@@ -19,7 +20,9 @@
 export default {
   name: "FirstStep",
   data: function () {
-    return {};
+    return {
+      user: "",
+    };
   },
   props: {},
 };
