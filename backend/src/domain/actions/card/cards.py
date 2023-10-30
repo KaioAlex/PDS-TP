@@ -10,10 +10,10 @@ class Cards:
 
     def getCard(self, id) -> Card:
         return self.__cardinterface.getCard(id)
-
-    def getCards(self) -> List[Card]:
-        return self.__cardinterface.getCardsList()
     
     def postCards(self, card: Card) -> List[Card]:
         return self.__cardinterface.post_card(card)
+    
+    def deleteCard(self, id: int) -> str:
+        return self.__cardinterface.deleteCard(id)
 

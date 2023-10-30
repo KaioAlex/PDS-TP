@@ -8,34 +8,13 @@ from src.domain.interfaces.card.card import Card
 @inject.autoparams()
 def card(cards: Cards) -> Blueprint:
     card_blueprint = Blueprint('card', __name__)
-    print('Here')
-
-    @card_blueprint.route('/api/user/login/<id>', methods=['POST'])
-    def post_login(id) -> Response:
-        response = users.getUser(id)
-
-        if response:
-            return jsonify({
-                'users': response
-            })
-        else:
-            return jsonify({
-                'users': "Not found"
-            })
 
     @card_blueprint.route('/api/card/<id>', methods=['GET'])
     def get_card(id) -> Response:
-        response = users.getUser(id)
+        response = cards.getCard(id)
 
         return jsonify({
-            'user': response
-        })
-
-    @card_blueprint.route('/api/cards', methods=['GET'])
-    def get_cards() -> Response:
-        response = users.getUsers()
-        return jsonify({
-            'users': response
+            'cards': response
         })
 
     @card_blueprint.route('/api/card', methods=['POST'])
@@ -53,6 +32,13 @@ def card(cards: Cards) -> Blueprint:
 
         return jsonify({
             'cards': None
+        })
+        
+    @card_blueprint.route('/api/card/<id>', methods=['DELETE'])
+    def delete_card(id) -> Response:
+        response = cards.deleteCard(id)
+        return jsonify({
+            'cards': response
         })
     
     return card_blueprint
