@@ -9,7 +9,7 @@ from src.domain.interfaces.transaction.transaction import Transaction
 class TransactionInterface(ABC):
     def getTransactions(self, id) -> List[Transaction]:
         cursor = get_cursor()
-        query = f"SELECT transactions.*, users.username AS dest_username FROM bdSplitWallet.transactions LEFT JOIN bdSplitWallet.users ON transactions.id_dest = users.id WHERE transactions.id_src = {id} OR transactions.id_dest = {id}"
+        query = f"SELECT transactions.*, users.name AS dest_name FROM bdSplitWallet.transactions LEFT JOIN bdSplitWallet.users ON transactions.id_dest = users.id WHERE transactions.id_src = {id} OR transactions.id_dest = {id}"
         
         cursor.execute(query)
         transactions = cursor.fetchall()
