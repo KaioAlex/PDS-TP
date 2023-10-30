@@ -40,10 +40,10 @@ class TransactionInterface(ABC):
         user_src = users_instance.getUser(tran.id_src)
         user_dest = users_instance.getUser(tran.id_dest)
         
-        user_dest.balance += tran.value
+        user_dest.balance += float(tran.value)
         user_dest.score += int(tran.value)
         user_src.score += int(tran.value)
-        user_src.balance -= tran.value
+        user_src.balance -= float(tran.value)
         
         response = users_instance.updateUserTransfer(user_dest)
         response = users_instance.updateUserTransfer(user_src)
