@@ -117,7 +117,6 @@ export default {
   methods: {
     register() {
       this.$store.dispatch("register", this.form).then((success) => {
-        debugger;
         if (success) {
           this.$notify({
             title: "Authorization",

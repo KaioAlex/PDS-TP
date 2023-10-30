@@ -13,7 +13,9 @@
           v-for="(card, index) in cards"
           :key="index"
           class="card"
-          :style="`background: linear-gradient(249deg, ${card.backgrondColor.from} 0%, ${card.backgrondColor.to} 100.65%)`"
+          :style="`background: linear-gradient(249deg, ${
+            backgrondColors[index % 3].from
+          } 0%, ${backgrondColors[index % 3].to} 100.65%)`"
         >
           <div class="card-info">
             <span class="card-info__numbers">.... {{ card.lastNumbers }}</span>
@@ -23,7 +25,10 @@
               <span class="card-info__debit">Debit</span>
             </div>
           </div>
-          <img src="@/assets/images/icons/delete.png" />
+          <img
+            src="@/assets/images/icons/delete.png"
+            @click="removeCard(card.id)"
+          />
         </div>
       </div>
       <div class="cards-add__btn app-btn app-btn-primary" @click="openForm()">
@@ -44,30 +49,19 @@ export default {
   },
   data() {
     return {
-      cards: [
+      cards: [],
+      backgrondColors: [
         {
-          lastNumbers: "1234",
-          backgrondColor: {
-            from: "#4BFF93",
-            to: "#32A528",
-          },
-          isVisa: false,
+          from: "#4BFF93",
+          to: "#32A528",
         },
         {
-          lastNumbers: "5678",
-          backgrondColor: {
-            from: "#FFB74B",
-            to: "#A53E28",
-          },
-          isVisa: true,
+          from: "#FFB74B",
+          to: "#A53E28",
         },
         {
-          lastNumbers: "9012",
-          backgrondColor: {
-            from: "#4B7DFF",
-            to: "#284AA5",
-          },
-          isVisa: true,
+          from: "#4B7DFF",
+          to: "#284AA5",
         },
       ],
       showForm: false,
@@ -79,7 +73,36 @@ export default {
     },
     closeForm() {
       this.showForm = false;
+      this.getCards();
     },
+    getCards() {
+      this.$store
+        .dispatch("getCartoes", this.$store.getters.getUserId)
+        .then((res) => {
+          this.cards = res ?? [];
+        });
+    },
+    removeCard(cardId) {
+      this.$store.dispatch("deleteCartoes", cardId).then((success) => {
+        if (success) {
+          this.$notify({
+            title: "Card",
+            text: "Your card has been deleted!",
+            type: "success",
+          });
+          this.getCards();
+        } else {
+          this.$notify({
+            title: "Card",
+            text: "Error deleting card, please try again",
+            type: "error",
+          });
+        }
+      });
+    },
+  },
+  mounted() {
+    this.getCards();
   },
 };
 </script>
@@ -124,7 +147,10 @@ export default {
   }
   .cards-list-container {
     width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow: scroll;
     .cards-list {
       width: 100%;
       display: flex;
@@ -170,6 +196,9 @@ export default {
               line-height: 35px;
             }
           }
+        }
+        img {
+          cursor: pointer;
         }
       }
     }

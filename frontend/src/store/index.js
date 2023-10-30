@@ -22,6 +22,9 @@ export default createStore({
     getUser: function (state) {
       return state.user;
     },
+    getUserId: function (state) {
+      return state.user.id;
+    },
     getBalance: function (state) {
       return state.user.balance;
     },
@@ -129,12 +132,27 @@ export default createStore({
     },
     getCartoes(context, payload) {
       return axios
-        .get(`${API_GATEWAY}${_card}/${payload}`, {
+        .get(`${API_GATEWAY}${_card}/${payload}${_user}`, {
           "Access-Control-Allow-Origin": "*",
         })
         .then((res) => {
           if (res.status == 200) {
-            return res.data;
+            const cards = res.data.cards;
+            const result = [];
+
+            cards.forEach((element) => {
+              result.push({
+                id: element[0],
+                id_user: element[1],
+                username: element[2],
+                num_card: element[3],
+                lastNumbers: element[3].slice(-4),
+                card_validity: element[4],
+                security_code: element[5],
+              });
+            });
+
+            return result;
           }
         })
         .catch((error) => {
@@ -148,8 +166,24 @@ export default createStore({
         })
         .then((res) => {
           if (res.status == 200) {
-            return res.data;
+            return true;
           }
+          return false;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    deleteCartoes(context, payload) {
+      return axios
+        .delete(`${API_GATEWAY}${_card}/${payload}`, {
+          "Access-Control-Allow-Origin": "*",
+        })
+        .then((res) => {
+          if (res.status == 200) {
+            return true;
+          }
+          return false;
         })
         .catch((error) => {
           console.log(error);
