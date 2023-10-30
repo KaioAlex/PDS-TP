@@ -249,7 +249,7 @@ export default createStore({
     },
     addFriend(context, payload) {
       return axios
-        .post(`${API_GATEWAY}${_card}`, payload, {
+        .post(`${API_GATEWAY}${_friendship}`, payload, {
           "Access-Control-Allow-Origin": "*",
         })
         .then((res) => {
@@ -264,9 +264,12 @@ export default createStore({
     },
     deleteFriend(context, payload) {
       return axios
-        .delete(`${API_GATEWAY}${_friendship}/${payload}`, {
-          "Access-Control-Allow-Origin": "*",
-        })
+        .delete(
+          `${API_GATEWAY}${_friendship}/${payload.user_id1}/${payload.user_id2}`,
+          {
+            "Access-Control-Allow-Origin": "*",
+          }
+        )
         .then((res) => {
           if (res.status == 200) {
             return true;

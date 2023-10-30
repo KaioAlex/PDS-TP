@@ -12,7 +12,12 @@
         <div class="friend__info">
           <span class="friend__name">{{ friend.name }}</span>
         </div>
-        <div class="friend__actions app-btn app-btn-alert">Remove</div>
+        <div
+          class="friend__actions app-btn app-btn-alert"
+          @click="removeFriend(friend.id)"
+        >
+          Remove
+        </div>
       </div>
     </div>
     <div class="friends-form" v-else>
@@ -59,6 +64,29 @@ export default {
           this.friends = res ?? [];
         });
     },
+    removeFriend(id) {
+      const body = {
+        user_id1: this.$store.getters.getUserId,
+        user_id2: id,
+      };
+
+      this.$store.dispatch("deleteFriend", body).then((success) => {
+        if (success) {
+          this.$notify({
+            title: "Friend",
+            text: "Your friend has been deleted!",
+            type: "success",
+          });
+          this.listFriends();
+        } else {
+          this.$notify({
+            title: "Friend",
+            text: "Error removing friend, please try again",
+            type: "error",
+          });
+        }
+      });
+    },
     findFriend() {
       this.$store.dispatch("getUserByUsername", this.userStr).then((res) => {
         this.newFriend = res ?? [];
@@ -67,9 +95,10 @@ export default {
           user_id2: this.newFriend.id,
         };
 
-        this.$store.dispatch("addCard", body).then((success) => {
+        this.$store.dispatch("addFriend", body).then((success) => {
           this.showForm = false;
           if (success) {
+            this.listFriends();
             this.$notify({
               title: "Friend",
               text: "New friend has been added to your list!",
