@@ -97,6 +97,8 @@ class UserInterface():
         conn.commit()
 
         cursor.close()
+        
+        user = self.getUserByUsername(user.username)
 
         return user
     
