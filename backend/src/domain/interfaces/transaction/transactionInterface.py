@@ -50,5 +50,15 @@ class TransactionInterface(ABC):
         
         print(response)
         
+    def addBalance(self, username, value):
+        users_instance = Users()  
+        user = users_instance.getUserByUsername(username)
+        
+        user.balance += float(value)
+        
+        response = users_instance.updateUserTransfer(user)
+        
+        return response        
+        
         
     

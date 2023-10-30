@@ -13,3 +13,6 @@ class Transactions:
     
     def postTransactions(self, transaction: Transaction):
         return self.__traninterface.postTransaction(transaction)
+    
+    def addBalance(self, username: str, value: float):
+        return self.__traninterface.addBalance(username, value)
