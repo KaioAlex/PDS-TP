@@ -6,17 +6,20 @@
         type="text"
         placeholder="$ 0,00"
         class="second-step-amount__value"
-        :value="amount"
+        v-model="amount"
         @change="amount = $event"
       />
-      <span class="second-step-amount__balance">$1.232 disponível.</span>
+      <span class="second-step-amount__balance">{{ balance }} disponível.</span>
     </div>
     <div class="second-step-values">
       <div class="second-step-values__btn" @click="setAmount(500)">$500</div>
       <div class="second-step-values__btn" @click="setAmount(1000)">$1.000</div>
       <div class="second-step-values__btn" @click="setAmount(1500)">$1.500</div>
     </div>
-    <div class="second-step-btn app-btn app-btn-primary" @click="$emit('next')">
+    <div
+      class="second-step-btn app-btn app-btn-primary"
+      @click="$emit('next', false, amount)"
+    >
       Continuar
     </div>
   </div>
@@ -30,7 +33,21 @@ export default {
   data: function () {
     return {
       amount: null,
+      balance: 0.0,
     };
+  },
+  methods: {
+    getBalance() {
+      const res = this.$store.getters.getBalance;
+
+      this.balance = res.toLocaleString("pt-br", {
+        style: "currency",
+        currency: "BRL",
+      });
+    },
+  },
+  mounted() {
+    this.getBalance();
   },
   setup() {
     const { inputRef, setValue } = useCurrencyInput({ currency: "BRL" });

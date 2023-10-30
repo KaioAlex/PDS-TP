@@ -1,17 +1,20 @@
 <template>
   <div class="first-step-form">
-    <label class="first-step-form__label" for="password"
+    <label class="first-step-form__label" for="username"
       >ID ou nome de usuário</label
     >
     <input
       v-model="user"
       class="first-step-form__input"
-      type="password"
-      name="password"
+      type="text"
+      name="username"
       placeholder="ID ou nome de usuário"
     />
   </div>
-  <div class="first-step-btn app-btn app-btn-primary" @click="$emit('next')">
+  <div
+    class="first-step-btn app-btn app-btn-primary"
+    @click="$emit('next', user)"
+  >
     Continuar
   </div>
 </template>
@@ -24,7 +27,6 @@ export default {
       user: "",
     };
   },
-  props: {},
 };
 </script>
 

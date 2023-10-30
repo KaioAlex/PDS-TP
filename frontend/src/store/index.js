@@ -102,6 +102,29 @@ export default createStore({
           console.log(error);
         });
     },
+    getUserByUsername(context, payload) {
+      return axios
+        .get(`${API_GATEWAY}${_user}/username/${payload}`, {
+          "Access-Control-Allow-Origin": "*",
+        })
+        .then((res) => {
+          if (res.status == 200) {
+            const user = res.data.user;
+            debugger;
+            return {
+              id: user[0],
+              name: user[1],
+              username: user[2],
+              email: user[3],
+              balance: user[5],
+              score: user[6],
+            };
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     getTransactions(context, payload) {
       return axios
         .get(`${API_GATEWAY}${_transaction}/${payload}`, {
@@ -125,6 +148,22 @@ export default createStore({
 
             return result;
           }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    newTransaction(context, payload) {
+      return axios
+        .post(`${API_GATEWAY}${_transaction}`, payload, {
+          "Access-Control-Allow-Origin": "*",
+        })
+        .then((res) => {
+          debugger;
+          if (res.status == 200) {
+            return true;
+          }
+          return false;
         })
         .catch((error) => {
           console.log(error);

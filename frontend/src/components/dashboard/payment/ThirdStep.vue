@@ -1,13 +1,12 @@
 <template>
   <div class="third-step">
     <h3 class="third-step__title">Valor</h3>
-    <span class="third-step__value">$ 500,00</span>
+    <span class="third-step__value">{{ amount }}</span>
     <h3 class="third-step__title">Para</h3>
-    <p class="third-step__info">Julieta Carolina Sosa</p>
-    <p class="third-step__info">Mercado Pago</p>
-    <p class="third-step__info">ID 0000003100068949510855</p>
+    <p class="third-step__info">{{ user.name }}</p>
+    <p class="third-step__info">ID {{ user.id }}</p>
   </div>
-  <div class="third-step-btn app-btn app-btn-primary" @click="$emit('next')">
+  <div class="third-step-btn app-btn app-btn-primary" @click="newTransaction">
     Realizar Transferencia
   </div>
 </template>
@@ -16,9 +15,39 @@
 export default {
   name: "FirstStep",
   data: function () {
-    return {};
+    return {
+      user: {
+        name: "",
+        id: "",
+      },
+    };
   },
-  props: {},
+  props: {
+    username: Number,
+    amount: Number,
+  },
+  methods: {
+    newTransaction() {
+      const currentDate = new Date().toJSON().slice(0, 10);
+      const body = {
+        id_src: this.$store.getters.getUserId,
+        id_dest: this.userId,
+        value: this.amount,
+        date: currentDate,
+        flag: 0,
+      };
+
+      this.$store.dispatch("newTransaction", body).then(() => {
+        this.$emit("next");
+      });
+    },
+  },
+  mounted() {
+    this.$store.dispatch("getUserByUsername", this.username).then((res) => {
+      debugger;
+      this.user = res ?? [];
+    });
+  },
 };
 </script>
 
