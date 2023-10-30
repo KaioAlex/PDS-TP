@@ -29,6 +29,14 @@ def user(users: Users) -> Blueprint:
         return jsonify({
             'user': response
         })
+    
+    @user_blueprint.route('/api/user/username/<username>', methods=['GET'])
+    def get_user_by_name(username) -> Response:
+        response = users.getUserByUsername(username)
+
+        return jsonify({
+            'user': response
+        })
 
     @user_blueprint.route('/api/user', methods=['GET'])
     def get_users() -> Response:
