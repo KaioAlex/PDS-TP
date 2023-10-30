@@ -17,9 +17,14 @@ def transactions(transactions: Transactions) -> Blueprint:
         })
         
     
-    @transactions_blueprint.route('/api/transaction/<username>/<value>', methods=['POST'])
-    def addBalance(username, value) -> Response:
-        response = transactions.addBalance(username, value)
+    @transactions_blueprint.route('/api/transaction/balance', methods=['POST'])
+    def addBalance() -> Response:
+        
+        request_data = request.get_json()
+        if (request_data is not None) and (type(request_data) is not dict):
+            request_data = json.loads(request_data)
+            
+        response = transactions.addBalance(request_data['username'], request_data['value'])
         return jsonify({
             'transactions': response
         })
