@@ -96,7 +96,7 @@ export default createStore({
               result.push({
                 id: element[0],
                 id_src: element[1],
-                id_dest: element[2],
+                name: element[6],
                 value: element[3],
                 date: element[4],
                 isDebit: this.state.user.id == element[2] ?? false,

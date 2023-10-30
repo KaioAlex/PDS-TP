@@ -60,8 +60,8 @@ export default {
         } else {
           this.$notify({
             title: "Authorization",
-            text: "Loguin error, check your credentials and try again!",
-            type: "ward",
+            text: "Wrong password, please try again",
+            type: "error",
           });
           this.form.username = "";
           this.form.password = "";
