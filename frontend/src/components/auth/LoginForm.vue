@@ -28,12 +28,7 @@
         name="password"
         placeholder="Senha"
       />
-      <button
-        class="login__btn btn btn-primary"
-        @click="login"
-      >
-        Login
-      </button>
+      <button class="login__btn btn btn-primary" @click="login">Login</button>
       <a class="login__link" href="#">Esqueceu sua senha?</a>
     </div>
   </div>
@@ -61,7 +56,7 @@ export default {
             text: "You have been logged in!",
             type: "success",
           });
-          this.$router.push('/dashboard')
+          this.$router.push("/dashboard");
         } else {
           this.$notify({
             title: "Authorization",

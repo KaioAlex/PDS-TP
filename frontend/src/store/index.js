@@ -28,7 +28,7 @@ export default createStore({
       debugger;
       state.user = payload;
       state.isLogged = true;
-    }
+    },
   },
   actions: {
     login(context, payload) {
@@ -42,7 +42,7 @@ export default createStore({
         .then((res) => {
           debugger;
           if (res.status == 200) {
-            context.commit('setUser', res.data);
+            context.commit("setUser", res.data);
             return true;
           }
         })
@@ -53,17 +53,13 @@ export default createStore({
     },
     register(context, payload) {
       return axios
-        .post(
-          `${API_GATEWAY}${_user}login`,
-          payload,
-          {
-            "Access-Control-Allow-Origin": "*",
-          }
-        )
+        .post(`${API_GATEWAY}${_user}login`, payload, {
+          "Access-Control-Allow-Origin": "*",
+        })
         .then((res) => {
           debugger;
           if (res.status == 200) {
-            context.commit('setUser', res.data);
+            context.commit("setUser", res.data);
             return true;
           }
         })
