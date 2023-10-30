@@ -50,8 +50,13 @@ def user(users: Users) -> Blueprint:
             return Response(str(err), status=400, mimetype='text/plain')
         response = users.postUsers(user_obj)
 
-        return jsonify({
-            'users': None
-        })
+        if response:
+            return jsonify({
+                'status': response
+            })
+        else:
+            return jsonify({
+                'status': "Not found"
+            })
     
     return user_blueprint

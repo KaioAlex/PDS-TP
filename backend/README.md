@@ -2,29 +2,29 @@
 - Estruturação de pastas do projeto:
 ```
 - src
-    - adapters
+    - db (Exterior - Mysql)
         - database
-    - domain
+    - domain (Classes de domínio, regras de negócio)
         - actions
             - database
-            - pedido
+            - user
+            - card
+            - friendship
+            - transaction
         - interfaces
             - database
-            - pedido
+            - user
+            - card
+            - friendship
+            - transaction
         - usecase
-            - pedido
-    - web
-        - pedido
-- tests
-    - adapters
-        - database
-    - domain
-        - actions
-            - pedido
-        - usecase
-            - pedido
-    - web
-        - pedido
+            - user
+            - card
+    - web (Exterior - API Rest)
+        - user
+        - card
+        - friendship
+        - transaction
 ```
 ## Principais tecnologias e bibliotecas utilizadas
 - Utilizado a linguagem [python](https://www.python.org/) para desenvolver o projeto.

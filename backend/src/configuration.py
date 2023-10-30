@@ -1,14 +1,21 @@
 import inject
 from flask import Flask
-from src.adapters.database.mongo import MongoAdapter
+
+from src.adapters.database.mysql import MysqlAdapter
+
 from src.domain.actions.database.database import DatabaseActions
 from src.domain.interfaces.database.database import DatabaseInterface
+
+from src.domain.interfaces.user.userInterface import UserInterface
+from src.domain.usecase.user.user import UserUseCase
+
 from src.bd_config import db_config
 import mysql.connector
 
 def configure_inject(application: Flask) -> None:
     def config(binder: inject.Binder) -> None:
-        binder.bind(DatabaseInterface, MongoAdapter)
+        binder.bind(DatabaseInterface, MysqlAdapter)
+        binder.bind(UserInterface, UserUseCase(DatabaseActions()))
 
     inject.configure(config)
 
