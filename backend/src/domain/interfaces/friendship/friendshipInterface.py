@@ -7,9 +7,9 @@ from src.configuration import get_conn
 from src.domain.interfaces.friendship.friendship import Friendship
 
 class FriendshipInterface(ABC):
-    def getFriendshipsList(self, userId) -> List[int]:
+    def getFriendshipsList(self, userId):
         cursor = get_cursor()
-        query =  f"SELECT DISTINCT CASE WHEN user_id1 = {userId} THEN user_id2 ELSE user_id1 END AS friend_id FROM bdSplitWallet.friendship WHERE user_id1 = {userId} OR user_id2 = {userId};"
+        query = f"SELECT friend_id, GROUP_CONCAT(name SEPARATOR ', ') AS friend_names FROM (SELECT DISTINCT CASE WHEN user_id1 = {userId} THEN user_id2 ELSE user_id1 END AS friend_id FROM bdSplitWallet.friendship WHERE user_id1 = {userId} OR user_id2 = {userId}) AS subquery LEFT JOIN bdSplitWallet.users ON subquery.friend_id = bdSplitWallet.users.id GROUP BY friend_id;"
         cursor.execute(query)
         friends = cursor.fetchall()
         
