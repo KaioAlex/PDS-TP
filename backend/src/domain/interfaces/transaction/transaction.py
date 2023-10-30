@@ -10,3 +10,4 @@ class Transaction:
     value: float
     date: str
     flag: int
+    name_dest: str = None
