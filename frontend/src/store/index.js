@@ -32,14 +32,18 @@ export default createStore({
   mutations: {
     setUser(state, payload) {
       const data = payload.users;
-      state.user = {
-        id: data[0],
-        name: data[1],
-        username: data[2],
-        email: data[3],
-        balance: data[5],
-        score: data[6],
-      };
+      if (data.id) {
+        state.user = data;
+      } else {
+        state.user = {
+          id: data[0],
+          name: data[1],
+          username: data[2],
+          email: data[3],
+          balance: data[5],
+          score: data[6],
+        };
+      }
       state.isLogged = true;
     },
     loggout(state) {
