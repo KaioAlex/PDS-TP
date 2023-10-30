@@ -1,5 +1,5 @@
-## Estrutura do projeto
-- Estruturação de pastas do projeto:
+## Documentação da Arquitetura
+### Estrutura de pastas do projeto:
 ```
 - src
     - db (Exterior - Mysql)
@@ -26,6 +26,71 @@
         - friendship
         - transaction
 ```
+## Arquitetura Hexagonal
+
+### Por que o sistema está adotando essa arquitetura?
+A arquitetura hexagonal, também conhecida como arquitetura de portas e adaptadores (Ports and Adapters), é um padrão de arquitetura de software que foi projetado para criar sistemas mais flexíveis, testáveis e independentes de detalhes de implementação. Ela está sendo usada neste projeto pois buscamos alcançar alta modularidade e separação de preocupações em um sistema.
+
+### Quais são as portas e adaptadores? Qual o objetivo deles?
+Temos portas, implementadas como interfaces, de: user, transaction, friendship, card e database. Interfaces são as interfaces de comunicação entre as camadas, aqui deve conter tanto as classes com a definição da estrutura dos dados quanto os metodos abstratos que são utilizados para realizar a comunicação entre as camadas.
+
+No nosso projeto temos um adaptador de Mysql, por exemplo, responsável por configurar toda a lógica com esse banco de dados. Quem utiliza esta parte são os UseCase do domain, que irão chamar a partir de uma interface.
+
+### Pode-se dar pequenos exemplos de código e diagramas
+
+**Porta: userInterface.py**
+```
+...
+class UserInterface(ABC):
+    @abstractmethod
+    def getUser(self, id) -> User:   
+        pass
+
+    @abstractmethod
+    def getUsersList(self) -> List[User]:   
+        pass
+
+    @abstractmethod
+    def postUser(self, user: User) -> List[User]:
+        pass
+...
+```
+
+**Adaptador: mysql.py**
+```
+...
+class MysqlAdapter(DatabaseInterface):
+    def get_user(self, id) -> User: 
+        cursor = get_conn().cursor()
+
+        # Execute a consulta na tabela "users"
+        query = f"SELECT * FROM bdSplitWallet.users WHERE id = {id};"
+        cursor.execute(query)
+
+        # Recupere os resultados da consulta
+        user = cursor.fetchone()
+
+        cursor.close()
+
+        if user == '':
+            return None
+
+        else:
+            return user
+    ...
+```
+
+**Injeção de Dependências: configuration.py**
+```
+def configure_inject(application: Flask) -> None:
+    def config(binder: inject.Binder) -> None:
+        binder.bind(DatabaseInterface, MysqlAdapter)
+        binder.bind(UserInterface, UserUseCase(DatabaseActions()))
+        binder.bind(CardInterface, CardUseCase(DatabaseActions()))
+
+    inject.configure(config)
+```
+
 ## Principais tecnologias e bibliotecas utilizadas
 - Utilizado a linguagem [python](https://www.python.org/) para desenvolver o projeto.
 - Consutruido utilizando o [poetry](https://poetry.eustace.io/) para gerenciar as dependências.
