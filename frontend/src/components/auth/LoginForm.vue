@@ -136,6 +136,7 @@ export default {
     line-height: normal;
 
     margin-bottom: 44px;
+    cursor: pointer;
   }
   .login__link {
     color: var(--color-text-primary);

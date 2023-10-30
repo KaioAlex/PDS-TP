@@ -37,8 +37,18 @@ export default createStore({
         balance: data[5],
         score: data[6],
       };
-      debugger;
       state.isLogged = true;
+    },
+    loggout(state) {
+      state.user = {
+        id: "",
+        name: "",
+        username: "",
+        email: "",
+        balance: "",
+        score: "",
+      };
+      state.isLogged = false;
     },
   },
   actions: {
@@ -144,6 +154,9 @@ export default createStore({
         .catch((error) => {
           console.log(error);
         });
+    },
+    loggout(context) {
+      context.commit("loggout");
     },
   },
   modules: {},

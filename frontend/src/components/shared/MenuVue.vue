@@ -76,7 +76,7 @@
         >
       </RouterLink>
     </div>
-    <RouterLink class="menu-link" to="/">
+    <RouterLink class="menu-link" to="/" @click="loggout">
       <img src="@/assets/images/menu/logout.png" class="header__logo" />
       <span class="menu-link__label">Sair</span>
     </RouterLink>
@@ -90,6 +90,11 @@ export default {
     return {
       selectedMenu: "dashboard",
     };
+  },
+  methods: {
+    loggout() {
+      this.$store.dispatch("loggout");
+    },
   },
   mounted() {
     const path = window.location.pathname;
