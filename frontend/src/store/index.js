@@ -32,7 +32,7 @@ export default createStore({
   },
   mutations: {
     setUser(state, payload) {
-      const data = payload.users;
+      const data = payload.users || payload.user;
       if (data.id) {
         state.user = data;
       } else {
@@ -100,7 +100,8 @@ export default createStore({
         })
         .then((res) => {
           if (res.status == 200) {
-            return res.data;
+            context.commit("setUser", res.data);
+            return true;
           }
         })
         .catch((error) => {
@@ -156,6 +157,19 @@ export default createStore({
         })
         .then((res) => {
           if (res.status == 200) {
+            axios
+              .get(`${API_GATEWAY}${_user}/${this.state.user.id}`, {
+                "Access-Control-Allow-Origin": "*",
+              })
+              .then((res) => {
+                if (res.status == 200) {
+                  context.commit("setUser", res.data);
+                  return true;
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
             return true;
           }
           return false;
