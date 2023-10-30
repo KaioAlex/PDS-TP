@@ -7,7 +7,6 @@
         placeholder="$ 0,00"
         class="second-step-amount__value"
         v-model="amount"
-        @change="amount = $event"
       />
       <span class="second-step-amount__balance">{{ balance }} disponível.</span>
     </div>

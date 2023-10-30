@@ -1,7 +1,12 @@
 <template>
   <div class="third-step">
     <h3 class="third-step__title">Valor</h3>
-    <span class="third-step__value">{{ amount }}</span>
+    <span class="third-step__value">{{
+      amount.toLocaleString("pt-br", {
+        style: "currency",
+        currency: "BRL",
+      })
+    }}</span>
     <h3 class="third-step__title">Para</h3>
     <p class="third-step__info">{{ user.name }}</p>
     <p class="third-step__info">ID {{ user.id }}</p>
@@ -31,7 +36,7 @@ export default {
       const currentDate = new Date().toJSON().slice(0, 10);
       const body = {
         id_src: this.$store.getters.getUserId,
-        id_dest: this.userId,
+        id_dest: this.user.id,
         value: this.amount,
         date: currentDate,
         flag: 0,
@@ -44,7 +49,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getUserByUsername", this.username).then((res) => {
-      debugger;
       this.user = res ?? [];
     });
   },

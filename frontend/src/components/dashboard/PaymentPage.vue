@@ -11,7 +11,12 @@
     <PaymentCard @back="prevStep" :step="step">
       <FirstStep v-if="step == 1" @next="nextStep" />
       <SecondStep v-else-if="step == 2" @next="nextStep" />
-      <ThirdStep v-else-if="step == 3" :username="destUser" @next="nextStep" />
+      <ThirdStep
+        v-else-if="step == 3"
+        :username="destUser"
+        :amount="amount"
+        @next="nextStep"
+      />
       <Conclusion v-else />
     </PaymentCard>
   </div>
@@ -56,8 +61,6 @@ export default {
     nextStep(user = false, amount = false) {
       if (user) this.destUser = user;
       if (amount) this.amount = amount;
-
-      debugger;
       this.step++;
     },
     prevStep() {

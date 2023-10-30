@@ -109,16 +109,7 @@ export default createStore({
         })
         .then((res) => {
           if (res.status == 200) {
-            const user = res.data.user;
-            debugger;
-            return {
-              id: user[0],
-              name: user[1],
-              username: user[2],
-              email: user[3],
-              balance: user[5],
-              score: user[6],
-            };
+            return res.data.user;
           }
         })
         .catch((error) => {
@@ -159,7 +150,6 @@ export default createStore({
           "Access-Control-Allow-Origin": "*",
         })
         .then((res) => {
-          debugger;
           if (res.status == 200) {
             return true;
           }
