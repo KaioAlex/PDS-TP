@@ -5,6 +5,7 @@ from src.configuration import get_cursor
 from src.configuration import get_conn
 
 from src.domain.interfaces.transaction.transaction import Transaction
+from src.domain.actions.user.users import Users
 
 class TransactionInterface(ABC):
     def getTransactions(self, id) -> List[Transaction]:
@@ -29,5 +30,25 @@ class TransactionInterface(ABC):
         conn.commit()
                         
         cursor.close()
+        
+        self.makeUsersTransfer(tran)
 
         return "transations inserted with sucess"
+    
+    def makeUsersTransfer(self, tran:Transaction):
+        users_instance = Users() 
+        user_src = users_instance.getUser(tran.id_src)
+        user_dest = users_instance.getUser(tran.id_dest)
+        
+        user_dest.balance += tran.value
+        user_dest.score += int(tran.value)
+        user_src.score += int(tran.value)
+        user_src.balance -= tran.value
+        
+        response = users_instance.updateUserTransfer(user_dest)
+        response = users_instance.updateUserTransfer(user_src)
+        
+        print(response)
+        
+        
+    
