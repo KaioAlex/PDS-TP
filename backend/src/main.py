@@ -5,14 +5,15 @@ from src.web.pedido.pedido import pedidos
 
 from src.web.friendship.friendship import friendships
 from src.web.user.user import user
+from src.web.card.card import card
 
 app = Flask(__name__)
-#mysql.init_app(app)
+
 configure_inject(app)
 app.register_blueprint(pedidos())
 app.register_blueprint(user())
+app.register_blueprint(card())
 app.register_blueprint(friendships())
 
-#app.register_blueprint(telas())
 
 connect_to_db()
