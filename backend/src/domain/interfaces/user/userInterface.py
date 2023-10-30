@@ -32,6 +32,7 @@ class UserInterface():
 
         # Execute a consulta na tabela "users"
         query = f"SELECT * FROM bdSplitWallet.users WHERE username = '{username}';"
+        print("\n\n\n", query)
         cursor.execute(query)
 
         # Recupere os resultados da consulta
