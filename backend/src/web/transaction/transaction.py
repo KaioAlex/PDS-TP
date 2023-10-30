@@ -16,6 +16,14 @@ def transactions(transactions: Transactions) -> Blueprint:
             'transactions': response
         })
         
+    
+    @transactions_blueprint.route('/api/transaction/<username>/<value>', methods=['POST'])
+    def addBalance(username, value) -> Response:
+        response = transactions.addBalance(username, value)
+        return jsonify({
+            'transactions': response
+        })
+        
 
     @transactions_blueprint.route('/api/transaction', methods=['POST'])
     def post_transactions() -> Response:

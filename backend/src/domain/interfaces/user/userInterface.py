@@ -27,6 +27,26 @@ class UserInterface():
 
             return response
     
+    def getUserByUsername(self, username) -> User:   
+        cursor = get_cursor()
+
+        # Execute a consulta na tabela "users"
+        query = f"SELECT * FROM bdSplitWallet.users WHERE username = '{username}';"
+        cursor.execute(query)
+
+        # Recupere os resultados da consulta
+        user = cursor.fetchone()
+
+        cursor.close()
+
+        if user == '':
+            return None
+
+        else:
+            response = User(id=user[0], name=user[1], username=user[2], email=user[3], birth=user[4], balance=user[5], score=user[6], password=user[7])
+
+            return response
+    
     def getLogin(self, username, password) -> User:   
         cursor = get_cursor()
 
