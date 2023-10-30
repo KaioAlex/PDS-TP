@@ -9,9 +9,9 @@ from src.domain.interfaces.user.user import User
 def user(users: Users) -> Blueprint:
     user_blueprint = Blueprint('user', __name__)
 
-    @user_blueprint.route('/api/user/login/<id>', methods=['POST'])
-    def post_login(id) -> Response:
-        response = users.getUser(id)
+    @user_blueprint.route('/api/user/login/<username>/<password>', methods=['GET'])
+    def get_login(username, password) -> Response:
+        response = users.getLogin(username, password)
 
         if response:
             return jsonify({
