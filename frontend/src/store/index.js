@@ -23,10 +23,57 @@ export default createStore({
       return state.user;
     },
   },
-  mutations: {},
+  mutations: {
+    setUser(state, payload) {
+      debugger;
+      state.user = payload;
+      state.isLogged = true;
+    }
+  },
   actions: {
+    login(context, payload) {
+      return axios
+        .get(
+          `${API_GATEWAY}${_user}login/${payload.username}/${payload.password}`,
+          {
+            "Access-Control-Allow-Origin": "*",
+          }
+        )
+        .then((res) => {
+          debugger;
+          if (res.status == 200) {
+            context.commit('setUser', res.data);
+            return true;
+          }
+        })
+        .catch((error) => {
+          debugger;
+          console.log(error);
+        });
+    },
+    register(context, payload) {
+      return axios
+        .post(
+          `${API_GATEWAY}${_user}login`,
+          payload,
+          {
+            "Access-Control-Allow-Origin": "*",
+          }
+        )
+        .then((res) => {
+          debugger;
+          if (res.status == 200) {
+            context.commit('setUser', res.data);
+            return true;
+          }
+        })
+        .catch((error) => {
+          debugger;
+          console.log(error);
+        });
+    },
     getUser(context, payload) {
-      axios
+      return axios
         .get(`${API_GATEWAY}${_user}${payload}`, {
           "Access-Control-Allow-Origin": "*",
         })
@@ -40,23 +87,35 @@ export default createStore({
         });
     },
     getTransactions(context, payload) {
-      axios
+      return axios
         .get(`${API_GATEWAY}${_transaction}${payload}`, {
           "Access-Control-Allow-Origin": "*",
         })
         .then((res) => {
-          debugger;
           if (res.status == 200) {
-            return res.data;
+            const transactions = res.data.transactions;
+            const result = [];
+
+            transactions.forEach((element) => {
+              result.push({
+                id: element[0],
+                id_src: element[1],
+                id_dest: element[2],
+                value: element[3],
+                date: element[4],
+                isDebit: this.state.user.id == element[2] ?? false,
+              });
+            });
+
+            return result;
           }
         })
         .catch((error) => {
-          debugger;
           console.log(error);
         });
     },
     getCartoes(context, payload) {
-      axios
+      return axios
         .get(`${API_GATEWAY}${_card}${payload}`, {
           "Access-Control-Allow-Origin": "*",
         })
@@ -70,18 +129,16 @@ export default createStore({
         });
     },
     addCard(context, payload) {
-      axios
+      return axios
         .post(`${API_GATEWAY}${_card}`, payload, {
           "Access-Control-Allow-Origin": "*",
         })
         .then((res) => {
-          debugger;
           if (res.status == 200) {
             return res.data;
           }
         })
         .catch((error) => {
-          debugger;
           console.log(error);
         });
     },

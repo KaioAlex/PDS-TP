@@ -12,6 +12,7 @@
         >Username</label
       >
       <input
+        v-model="form.username"
         class="login__input"
         type="text"
         name="username"
@@ -21,6 +22,7 @@
         >Senha</label
       >
       <input
+        v-model="form.password"
         class="login__input"
         type="password"
         name="password"
@@ -28,7 +30,7 @@
       />
       <button
         class="login__btn btn btn-primary"
-        @click="$router.push('/dashboard')"
+        @click="login"
       >
         Login
       </button>
@@ -44,7 +46,33 @@ export default {
     return {
       showLoginLabel: false,
       showLoginPassword: false,
+      form: {
+        username: "",
+        password: "",
+      },
     };
+  },
+  methods: {
+    login() {
+      this.$store.dispatch("login", this.form).then((success) => {
+        if (success) {
+          this.$notify({
+            title: "Authorization",
+            text: "You have been logged in!",
+            type: "success",
+          });
+          this.$router.push('/dashboard')
+        } else {
+          this.$notify({
+            title: "Authorization",
+            text: "Loguin error, check your credentials and try again!",
+            type: "ward",
+          });
+          this.form.username = "";
+          this.form.password = "";
+        }
+      });
+    },
   },
 };
 </script>

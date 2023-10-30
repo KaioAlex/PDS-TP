@@ -71,10 +71,15 @@
               <span
                 class="dashboard-history-transactions-right__value"
                 :class="transaction.isDebit ? 'debit' : 'credit'"
-                >{{ transaction.value }}</span
+                >{{
+                  transaction.value.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })
+                }}</span
               >
               <span class="dashboard-history-transactions-info">{{
-                transaction.date
+                transaction.date.slice(0, 16)
               }}</span>
             </div>
           </div>
@@ -113,7 +118,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getTransactions", 1).then((res) => {
-      debugger;
       this.transactions = res ?? [];
     });
   },
