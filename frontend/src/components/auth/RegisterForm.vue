@@ -18,6 +18,7 @@
           >Nome Completo</label
         >
         <input
+          v-model="form.name"
           class="register-fields__input"
           type="text"
           name="name"
@@ -30,6 +31,7 @@
           >E-mail</label
         >
         <input
+          v-model="form.email"
           class="register-fields__input"
           type="mail"
           name="email"
@@ -42,6 +44,7 @@
           >Username</label
         >
         <input
+          v-model="form.username"
           class="register-fields__input"
           type="text"
           name="username"
@@ -54,6 +57,7 @@
           >Data de Nascimento</label
         >
         <input
+          v-model="form.birth"
           class="register-fields__input"
           type="date"
           name="birthday"
@@ -66,6 +70,7 @@
           >Senha</label
         >
         <input
+          v-model="form.password"
           class="register-fields__input"
           type="password"
           name="password"
@@ -84,10 +89,7 @@
           placeholder="Confirme sua Senha"
         />
       </div>
-      <button
-        class="register__btn btn btn-primary"
-        @click="$router.push('/dashboard')"
-      >
+      <button class="register__btn btn btn-primary" @click="register">
         Register
       </button>
     </div>
@@ -101,7 +103,36 @@ export default {
     return {
       showRegisterLabel: false,
       showRegisterPassword: false,
+      form: {
+        name: "",
+        email: "",
+        username: "",
+        birth: "",
+        balance: 0,
+        score: 0,
+        password: "",
+      },
     };
+  },
+  methods: {
+    register() {
+      this.$store.dispatch("register", this.form).then((success) => {
+        if (success) {
+          this.$notify({
+            title: "Authorization",
+            text: "You have been logged in!",
+            type: "success",
+          });
+          this.$router.push("/dashboard");
+        } else {
+          this.$notify({
+            title: "Registration Error",
+            text: "Error crating your account, please try again",
+            type: "error",
+          });
+        }
+      });
+    },
   },
 };
 </script>
@@ -187,6 +218,7 @@ export default {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    cursor: pointer;
   }
 }
 </style>

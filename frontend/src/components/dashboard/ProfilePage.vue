@@ -47,12 +47,11 @@ export default {
   name: "ProfilePage",
   data() {
     return {
-      user: {
-        name: "Fulano",
-        id: "123456",
-        username: "fulano123",
-      },
+      user: {},
     };
+  },
+  mounted() {
+    this.user = this.$store.getters.getUser;
   },
 };
 </script>

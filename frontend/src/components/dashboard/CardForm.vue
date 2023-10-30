@@ -40,7 +40,7 @@
           <input
             v-model="form.card_validity"
             class="card-form__input"
-            type="text"
+            type="date"
             name="card_validity"
             v-maska="'##/##'"
             placeholder="Data de vencimento"
@@ -78,7 +78,7 @@ export default {
   data: function () {
     return {
       form: {
-        id_user: 1,
+        id_user: this.$store.getters.getUserId,
         num_card: "",
         username: "",
         card_validity: "",
@@ -94,8 +94,25 @@ export default {
   },
   methods: {
     createNewCard() {
-      debugger;
-      this.$store.dispatch("addCard", this.form);
+      const date = this.form.card_validity.split("/");
+      this.form.card_validity = date.reverse().join("-");
+
+      this.$store.dispatch("addCard", this.form).then((success) => {
+        if (success) {
+          this.$emit("close");
+          this.$notify({
+            title: "Card created",
+            text: "Your card has been created!",
+            type: "success",
+          });
+        } else {
+          this.$notify({
+            title: "Card error",
+            text: "Something went wrong, please try again",
+            type: "error",
+          });
+        }
+      });
     },
   },
 };

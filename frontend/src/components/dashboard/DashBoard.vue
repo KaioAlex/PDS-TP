@@ -8,7 +8,9 @@
             Meus Dados
           </div>
         </div>
-        <span class="dashboard-balance__value">R$ 1.232</span>
+        <span class="dashboard-balance__value">
+          {{ balance }}
+        </span>
       </div>
       <div class="dashboard-buttons">
         <div
@@ -93,17 +95,13 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "DashBoard",
   data() {
     return {
       transactions: [],
+      balance: 0,
     };
-  },
-  computed: {
-    ...mapGetters(["getUser"]),
   },
   methods: {
     getLabel(transaction) {
@@ -115,8 +113,17 @@ export default {
       const prefix = transaction.isDebit ? "De" : "Para";
       return `${prefix} ${transaction.name}`;
     },
+    getBalance() {
+      const res = this.$store.getters.getBalance;
+
+      this.balance = res.toLocaleString("pt-br", {
+        style: "currency",
+        currency: "BRL",
+      });
+    },
   },
   mounted() {
+    this.getBalance();
     this.$store.dispatch("getTransactions", 1).then((res) => {
       this.transactions = res ?? [];
     });
