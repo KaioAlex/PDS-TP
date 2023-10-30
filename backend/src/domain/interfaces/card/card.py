@@ -10,3 +10,4 @@ class Card:
     num_card: str
     card_validity: str
     security_code: int
+    id: int = None
