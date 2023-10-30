@@ -19,4 +19,7 @@ class Users:
     
     def postUsers(self, user: User) -> List[User]:
         return self.__userinterface.post_user(user)
+    
+    def updateUserTransfer(self, user: User) -> str:
+        return self.__userinterface.updateUserTransfer(user)
 

@@ -23,7 +23,9 @@ class UserInterface():
             return None
 
         else:
-            return user
+            response = User(id=user[0], name=user[1], username=user[2], email=user[3], birth=user[4], balance=user[5], score=user[6], password=user[7])
+
+            return response
     
     def getLogin(self, username, password) -> User:   
         cursor = get_cursor()
@@ -76,3 +78,18 @@ class UserInterface():
         cursor.close()
 
         return
+    
+    def updateUserTransfer(self, user: User) -> str:
+        conn = get_conn()
+        cursor = get_cursor()
+        query = f"UPDATE bdSplitWallet.users SET balance = {user.balance}, score = {user.score}  WHERE id = {user.id};"
+
+        # Faz o post no banco
+        cursor.execute(query)
+        
+        conn.commit()
+
+        cursor.close()
+        
+
+        return "transfer done"
