@@ -7,5 +7,26 @@ from src.configuration import get_conn
 from src.domain.interfaces.transaction.transaction import Transaction
 
 class TransactionInterface(ABC):
-    def getTransactions(self):
-        pass
+    def getTransactions(self, id) -> List[Transaction]:
+        cursor = get_cursor()
+        query =  f"SELECT * FROM bdSplitWallet.transactions WHERE id_src = {id} or id_dest = {id}"
+        cursor.execute(query)
+        transactions = cursor.fetchall()
+        
+        cursor.close()
+        
+        return transactions
+    
+    def postTransaction(self, tran: Transaction):
+        conn = get_conn()
+        cursor = get_cursor()
+        
+        query = f"INSERT INTO bdSplitWallet.transactions (id_src, id_dest, value, date, flag) VALUES ({tran.id_src}, {tran.id_dest}, {tran.value}, '{tran.date}', {tran.flag});"
+
+        # Faz o post no banco
+        cursor.execute(query)
+        conn.commit()
+                        
+        cursor.close()
+
+        return "transations inserted with sucess"
