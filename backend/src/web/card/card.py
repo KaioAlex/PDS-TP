@@ -1,4 +1,3 @@
-# Adaptador REST
 import inject
 import json
 from flask import Blueprint, jsonify, Response, request, render_template
@@ -36,10 +35,10 @@ def card(cards: Cards) -> Blueprint:
             card_obj = Card(**request_data)
         except TypeError as err:
             return Response(str(err), status=400, mimetype='text/plain')
-        response = cards.postCards(card_obj)
+        response = cards.postCard(card_obj)
 
         return jsonify({
-            'cards': None
+            'cards': response
         })
         
     @card_blueprint.route('/api/card/<id>', methods=['DELETE'])

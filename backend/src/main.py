@@ -17,5 +17,4 @@ app.register_blueprint(card())
 app.register_blueprint(friendships())
 app.register_blueprint(transactions()) 
 
-
 connect_to_db()
