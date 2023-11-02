@@ -4,6 +4,7 @@ from typing import List
 from src.domain.interfaces.user.user import User
 from src.domain.interfaces.card.card import Card
 from src.domain.interfaces.transaction.transaction import Transaction
+from src.domain.interfaces.friendship.friendship import Friendship
 
 class DatabaseInterface(ABC):
     # User
@@ -63,4 +64,17 @@ class DatabaseInterface(ABC):
 
     @abstractmethod
     def add_balance(self, username, value) -> str:   
+        pass
+
+    # Friendship
+    @abstractmethod
+    def get_friendships_list(self, userId) -> List[Friendship]:
+        pass
+    
+    @abstractmethod
+    def post_friendship(self, friendship: Friendship) -> List[Friendship]:
+        pass
+    
+    @abstractmethod
+    def delete_friendship(self, user_id: int, friend_id: int) -> str:
         pass

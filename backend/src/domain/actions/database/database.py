@@ -5,6 +5,7 @@ from src.domain.interfaces.database.database import DatabaseInterface
 from src.domain.interfaces.user.user import User
 from src.domain.interfaces.card.card import Card
 from src.domain.interfaces.transaction.transaction import Transaction
+from src.domain.interfaces.friendship.friendship import Friendship
 
 class DatabaseActions:
     # User
@@ -65,3 +66,16 @@ class DatabaseActions:
     @inject.autoparams()
     def addBalance(self, username:str, value:float, database: DatabaseInterface) -> str:
         return database.add_balance(self, username, value)
+
+    # Friendship
+    @inject.autoparams()
+    def getFriendshipsList(self, userId:int, database: DatabaseInterface) -> List[Friendship]:
+        return database.get_friendships_list(self, userId)
+
+    @inject.autoparams()
+    def postFriendship(self, friendship: Friendship, database: DatabaseInterface) -> List[Friendship]:
+        return database.post_friendship(self, friendship)
+
+    @inject.autoparams()
+    def deleteFriendship(self, user_id: int, friend_id: int, database: DatabaseInterface) -> str:
+        return database.delete_friendship(self, user_id, friend_id)

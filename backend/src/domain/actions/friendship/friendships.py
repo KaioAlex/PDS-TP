@@ -6,15 +6,15 @@ from src.domain.interfaces.friendship.friendshipInterface import FriendshipInter
 class Friendships:
     @inject.autoparams()
     def __init__(self, friendshipinterface: FriendshipInterface):
-        self.__pedinterface = friendshipinterface
+        self.__friendshipinterface = friendshipinterface
 
-    def getFriendships(self, id: int) :
-        return self.__pedinterface.getFriendshipsList(id)
+    def getFriendshipsList(self, id: int) :
+        return self.__friendshipinterface.getFriendshipsList(id)
     
-    def postFriendships(self, friendship: Friendship) -> List[Friendship]:
-        return self.__pedinterface.post_friendship(friendship)
+    def postFriendship(self, friendship: Friendship) -> List[Friendship]:
+        return self.__friendshipinterface.postFriendship(friendship)
     
     def deleteFriendships(self, user_id: int,friend_id: int) -> str:
-        return self.__pedinterface.deleteFriendship(user_id, friend_id)
+        return self.__friendshipinterface.deleteFriendship(user_id, friend_id)
         
 
