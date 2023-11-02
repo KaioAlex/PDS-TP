@@ -1,18 +1,22 @@
 from typing import List
 import inject
+
 from src.domain.interfaces.transaction.transaction import Transaction
 from src.domain.interfaces.transaction.transactionInterface import TransactionInterface
 
 class Transactions:
     @inject.autoparams()
-    def __init__(self, transactionnterface: TransactionInterface):
-        self.__traninterface = transactionnterface
+    def __init__(self, transactioninterface: TransactionInterface):
+        self.__transactioninterface = transactioninterface
 
-    def getTransactions(self, id: int) -> List[Transaction]:
-        return self.__traninterface.getTransactions(id)
-    
-    def postTransactions(self, transaction: Transaction):
-        return self.__traninterface.postTransaction(transaction)
-    
-    def addBalance(self, username: str, value: float):
-        return self.__traninterface.addBalance(username, value)
+    def getTransactions(self, id:int) -> List[Transaction]: 
+        return self.__transactioninterface.getTransactions(id)
+
+    def postTransaction(self, tran:Transaction) -> Transaction:   
+        return self.__transactioninterface.postTransaction(tran)
+
+    def makeUsersTransfer(self, tran:Transaction) -> str:   
+        return self.__transactioninterface.makeUsersTransfer(tran)
+
+    def addBalance(self, username:str, value:float) -> str:
+        return self.__transactioninterface.addBalance(username, value)

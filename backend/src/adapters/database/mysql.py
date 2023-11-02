@@ -4,10 +4,14 @@ from typing import List
 from src.domain.interfaces.database.database import DatabaseInterface
 
 from src.domain.interfaces.user.user import User
+from src.domain.actions.user.users import Users
 from src.domain.interfaces.user.userInterface import UserInterface
 
 from src.domain.interfaces.card.card import Card
 from src.domain.interfaces.card.cardInterface import CardInterface
+
+from src.domain.interfaces.transaction.transaction import Transaction
+from src.domain.interfaces.transaction.transactionInterface import TransactionInterface
 
 from src.bd_config import db_config
 # from src.configuration import connect_to_db
@@ -175,7 +179,7 @@ class MysqlAdapter(DatabaseInterface):
 
         return card
     
-    def delete_card(self, id):
+    def delete_card(self, id) -> str:
         conn = get_conn()
         cursor = get_cursor()
 
@@ -187,3 +191,55 @@ class MysqlAdapter(DatabaseInterface):
         cursor.close()
 
         return "message: card deleted with sucess"
+
+    def get_transactions(self, id) -> List[Transaction]:
+        cursor = get_cursor()
+        query = f"SELECT transactions.*, users.name AS dest_name FROM bdSplitWallet.transactions LEFT JOIN bdSplitWallet.users ON transactions.id_dest = users.id WHERE transactions.id_src = {id} OR transactions.id_dest = {id}"
+        
+        cursor.execute(query)
+        transactions = cursor.fetchall()
+        
+        cursor.close()
+        
+        return transactions
+    
+    def post_transaction(self, tran: Transaction) -> Transaction:
+        conn = get_conn()
+        cursor = get_cursor()
+        
+        query = f"INSERT INTO bdSplitWallet.transactions (id_src, id_dest, value, date, flag) VALUES ({tran.id_src}, {tran.id_dest}, {tran.value}, '{tran.date}', {tran.flag});"
+
+        # Faz o post no banco
+        cursor.execute(query)
+        conn.commit()
+                        
+        cursor.close()
+        
+        self.makeUsersTransfer(tran)
+
+        return tran
+    
+    def make_users_transfer(self, tran:Transaction) -> str:
+        users_instance = Users() 
+        user_src = users_instance.getUser(tran.id_src)
+        user_dest = users_instance.getUser(tran.id_dest)
+        
+        user_dest.balance += float(tran.value)
+        user_dest.score += int(tran.value)
+        user_src.score += int(tran.value)
+        user_src.balance -= float(tran.value)
+        
+        response = users_instance.updateUserTransfer(user_dest)
+        response = users_instance.updateUserTransfer(user_src)
+        
+        print(response)
+        
+    def add_balance(self, username, value) -> str:
+        users_instance = Users()
+        user = users_instance.getUserByUsername(username)
+        
+        user.balance += float(value)
+        
+        response = users_instance.updateUserTransfer(user)
+        
+        return response    

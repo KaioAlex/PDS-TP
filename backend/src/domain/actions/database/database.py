@@ -4,6 +4,7 @@ import inject
 from src.domain.interfaces.database.database import DatabaseInterface
 from src.domain.interfaces.user.user import User
 from src.domain.interfaces.card.card import Card
+from src.domain.interfaces.transaction.transaction import Transaction
 
 class DatabaseActions:
     # User
@@ -47,3 +48,20 @@ class DatabaseActions:
     @inject.autoparams()
     def deleteCard(self, id, database: DatabaseInterface) -> str: 
         return database.delete_card(self, id)
+
+    # Transaction
+    @inject.autoparams()
+    def getTransactions(self, id, database: DatabaseInterface) -> List[Transaction]:
+        return database.get_transactions(self, id)
+
+    @inject.autoparams()
+    def postTransaction(self, tran:Transaction, database: DatabaseInterface) -> Transaction:
+        return database.post_transaction(self, tran)
+        
+    @inject.autoparams()
+    def makeUsersTransfer(self, tran:Transaction, database: DatabaseInterface) -> str:
+        return database.make_users_transfer(self, tran)
+
+    @inject.autoparams()
+    def addBalance(self, username:str, value:float, database: DatabaseInterface) -> str:
+        return database.add_balance(self, username, value)

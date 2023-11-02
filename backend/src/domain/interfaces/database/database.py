@@ -3,6 +3,7 @@ from typing import List
 
 from src.domain.interfaces.user.user import User
 from src.domain.interfaces.card.card import Card
+from src.domain.interfaces.transaction.transaction import Transaction
 
 class DatabaseInterface(ABC):
     # User
@@ -45,4 +46,21 @@ class DatabaseInterface(ABC):
 
     @abstractmethod
     def delete_card(self, id) -> str:   
+        pass
+
+    # Transaction
+    @abstractmethod
+    def get_transaction(self, id) -> List[Transaction]:
+        pass
+
+    @abstractmethod
+    def post_transaction(self, tran: Transaction) -> Transaction:
+        pass
+
+    @abstractmethod
+    def make_users_transfer(self, tran:Transaction) -> str:   
+        pass
+
+    @abstractmethod
+    def add_balance(self, username, value) -> str:   
         pass

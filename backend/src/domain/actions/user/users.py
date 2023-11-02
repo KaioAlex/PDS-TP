@@ -1,5 +1,6 @@
 from typing import List
 import inject
+
 from src.domain.interfaces.user.user import User
 from src.domain.interfaces.user.userInterface import UserInterface
 
@@ -21,7 +22,7 @@ class Users:
         return self.__userinterface.getUsersList()
     
     def postUsers(self, user: User) -> User:
-        return self.__userinterface.post_user(user)
+        return self.__userinterface.postUser(user)
     
     def updateUserTransfer(self, user: User) -> str:
         return self.__userinterface.updateUserTransfer(user)

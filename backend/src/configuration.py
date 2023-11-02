@@ -12,6 +12,9 @@ from src.domain.usecase.user.user import UserUseCase
 from src.domain.interfaces.card.cardInterface import CardInterface
 from src.domain.usecase.card.card import CardUseCase
 
+from src.domain.interfaces.transaction.transactionInterface import TransactionInterface
+from src.domain.usecase.transaction.transaction import TransactionUseCase
+
 from src.bd_config import db_config
 import mysql.connector
 
@@ -20,6 +23,7 @@ def configure_inject(application: Flask) -> None:
         binder.bind(DatabaseInterface, MysqlAdapter)
         binder.bind(UserInterface, UserUseCase(DatabaseActions()))
         binder.bind(CardInterface, CardUseCase(DatabaseActions()))
+        binder.bind(TransactionInterface, TransactionUseCase(DatabaseActions()))
 
     inject.configure(config)
 
