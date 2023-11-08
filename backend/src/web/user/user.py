@@ -1,7 +1,7 @@
-# Adaptador REST
 import inject
 import json
 from flask import Blueprint, jsonify, Response, request, render_template
+
 from src.domain.actions.user.users import Users
 from src.domain.interfaces.user.user import User
 

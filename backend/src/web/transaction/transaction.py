@@ -1,7 +1,7 @@
-# Adaptador REST
 import inject
 import json
-from flask import Blueprint, jsonify, Response, request, render_template, g
+from flask import Blueprint, jsonify, Response, request, render_template
+
 from src.domain.actions.transaction.transactions import Transactions
 from src.domain.interfaces.transaction.transaction import Transaction
 
@@ -16,10 +16,8 @@ def transactions(transactions: Transactions) -> Blueprint:
             'transactions': response
         })
         
-    
     @transactions_blueprint.route('/api/transaction/balance', methods=['POST'])
     def addBalance() -> Response:
-        
         request_data = request.get_json()
         if (request_data is not None) and (type(request_data) is not dict):
             request_data = json.loads(request_data)
@@ -28,13 +26,9 @@ def transactions(transactions: Transactions) -> Blueprint:
         return jsonify({
             'transactions': response
         })
-        
 
     @transactions_blueprint.route('/api/transaction', methods=['POST'])
     def post_transactions() -> Response:
-        """ 
-            Pega o conteudo do body do request, deve vir no type json
-        """
         request_data = request.get_json()
         if (request_data is not None) and (type(request_data) is not dict):
             request_data = json.loads(request_data)
@@ -44,7 +38,7 @@ def transactions(transactions: Transactions) -> Blueprint:
             Transaction_obj = Transaction(**request_data)
         except TypeError as err:
             return Response(str(err), status=400, mimetype='text/plain')
-        response = transactions.postTransactions(Transaction_obj)
+        response = transactions.postTransaction(Transaction_obj)
         
         return jsonify({
             'response': response

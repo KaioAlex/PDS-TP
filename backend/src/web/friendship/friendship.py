@@ -1,7 +1,7 @@
-# Adaptador REST
 import inject
 import json
-from flask import Blueprint, jsonify, Response, request, render_template, g
+from flask import Blueprint, jsonify, Response, request, render_template
+
 from src.domain.actions.friendship.friendships import Friendships
 from src.domain.interfaces.friendship.friendship import Friendship
 
@@ -11,16 +11,13 @@ def friendships(friendships: Friendships) -> Blueprint:
 
     @friendships_blueprint.route('/api/friendship/<id>', methods=['GET'])
     def get_friendships(id) -> Response:
-        response = friendships.getFriendships(id)
+        response = friendships.getFriendshipsList(id)
         return jsonify({
             'friendships': response
         })
 
     @friendships_blueprint.route('/api/friendship', methods=['POST'])
     def post_friendship() -> Response:
-        """ 
-            Pega o conteudo do body do request, deve vir no type json
-        """
         request_data = request.get_json()
         if (request_data is not None) and (type(request_data) is not dict):
             request_data = json.loads(request_data)
@@ -30,7 +27,7 @@ def friendships(friendships: Friendships) -> Blueprint:
             Friendship_obj = Friendship(**request_data)
         except TypeError as err:
             return Response(str(err), status=400, mimetype='text/plain')
-        response = friendships.postFriendships(Friendship_obj)
+        response = friendships.postFriendship(Friendship_obj)
 
         return jsonify({
             'friendships': response
@@ -38,7 +35,7 @@ def friendships(friendships: Friendships) -> Blueprint:
         
     @friendships_blueprint.route('/api/friendship/<user_id>/<friend_id>', methods=['DELETE'])
     def delete_friendship(user_id, friend_id) -> Response:
-        response = friendships.deleteFriendships(user_id,friend_id)
+        response = friendships.deleteFriendships(user_id, friend_id)
         return jsonify({
             'friendships': response
         })

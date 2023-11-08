@@ -14,8 +14,8 @@ class Cards:
     def getCardList(self, id_user) -> List[Card]:
         return self.__cardinterface.getCardList(id_user)
            
-    def postCards(self, card: Card) -> List[Card]:
-        return self.__cardinterface.post_card(card)
+    def postCard(self, card: Card) -> Card:
+        return self.__cardinterface.postCard(card)
     
     def deleteCard(self, id: int) -> str:
         return self.__cardinterface.deleteCard(id)
