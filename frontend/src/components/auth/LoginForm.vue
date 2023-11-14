@@ -13,7 +13,7 @@
       >
       <input
         v-model="form.username"
-        class="login__input"
+        class="login__input username"
         type="text"
         name="username"
         placeholder="Username"
@@ -23,7 +23,7 @@
       >
       <input
         v-model="form.password"
-        class="login__input"
+        class="login__input password"
         type="password"
         name="password"
         placeholder="Senha"

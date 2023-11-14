@@ -19,7 +19,7 @@
         >
         <input
           v-model="form.name"
-          class="register-fields__input"
+          class="register-fields__input name"
           type="text"
           name="name"
           placeholder="Nome Completo"
@@ -32,7 +32,7 @@
         >
         <input
           v-model="form.email"
-          class="register-fields__input"
+          class="register-fields__input email"
           type="mail"
           name="email"
           placeholder="E-mail"
@@ -45,7 +45,7 @@
         >
         <input
           v-model="form.username"
-          class="register-fields__input"
+          class="register-fields__input username"
           type="text"
           name="username"
           placeholder="Username"
@@ -58,7 +58,7 @@
         >
         <input
           v-model="form.birth"
-          class="register-fields__input"
+          class="register-fields__input birthday"
           type="date"
           name="birthday"
           placeholder="Data de Nascimento"
@@ -71,7 +71,7 @@
         >
         <input
           v-model="form.password"
-          class="register-fields__input"
+          class="register-fields__input password"
           type="password"
           name="password"
           placeholder="Senha"
@@ -83,7 +83,7 @@
           >Confirme sua Senha</label
         >
         <input
-          class="register-fields__input"
+          class="register-fields__input passwordConfirm"
           type="password"
           name="passwordConfirm"
           placeholder="Confirme sua Senha"
