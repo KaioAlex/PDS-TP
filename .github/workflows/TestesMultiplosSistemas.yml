@@ -18,5 +18,8 @@ jobs:
         python-version: 3.9
       
     - name: Executar testes
-      working-directory: ./backend
-      run: python -m unittest discover ./tests/unit
+      run: |
+          cd backend
+          cd tests
+          cd unit
+          python -m unittest cardsTest.py
