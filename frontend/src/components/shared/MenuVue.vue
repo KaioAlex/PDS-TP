@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
     <div class="menu-links">
-      <RouterLink class="menu-link" to="/dashboard">
+      <RouterLink class="menu-link dashboard" to="/dashboard">
         <img
           v-if="selectedMenu == 'dashboard'"
           src="@/assets/images/menu/home-selected.png"
@@ -15,7 +15,7 @@
           Início
         </span>
       </RouterLink>
-      <RouterLink class="menu-link" to="/dashboard/profile">
+      <RouterLink class="menu-link profile" to="/dashboard/profile">
         <img
           v-if="selectedMenu == 'profile'"
           src="@/assets/images/menu/profile-selected.png"
@@ -32,7 +32,7 @@
           >Meu Perfil</span
         >
       </RouterLink>
-      <RouterLink class="menu-link" to="/dashboard/help">
+      <RouterLink class="menu-link help" to="/dashboard/help">
         <img
           v-if="selectedMenu == 'help'"
           src="@/assets/images/menu/help-selected.png"
@@ -45,7 +45,7 @@
           >Ajuda</span
         >
       </RouterLink>
-      <RouterLink class="menu-link" to="/dashboard/friends">
+      <RouterLink class="menu-link friends" to="/dashboard/friends">
         <img
           v-if="selectedMenu == 'friends'"
           src="@/assets/images/menu/friends-selected.png"
@@ -62,7 +62,7 @@
           >Amigos</span
         >
       </RouterLink>
-      <RouterLink class="menu-link" to="/dashboard/cards">
+      <RouterLink class="menu-link cards" to="/dashboard/cards">
         <img
           v-if="selectedMenu == 'cards'"
           src="@/assets/images/menu/card-selected.png"

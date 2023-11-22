@@ -1,4 +1,8 @@
 describe("Check Register", () => {
+  beforeEach(() => {
+    cy.viewport(1920, 1080)
+  })
+
   it("Register User", () => {
     cy.visit("/");
     cy.contains('Cadastrar').click()
@@ -19,10 +23,10 @@ describe("Check Register", () => {
     cy.get('.register-fields__input.email').should('have.value', 'fake@email.com')
   
       // Get an input, type into it
-    cy.get('.register-fields__input.username').type('test')
+    cy.get('.register-fields__input.username').type('test_pds')
 
     //  Verify that the value has been updated
-    cy.get('.register-fields__input.username').should('have.value', 'test')
+    cy.get('.register-fields__input.username').should('have.value', 'test_pds')
     
     // Get an input, type into it
     cy.get('.register-fields__input.birthday').type('2000-02-14')

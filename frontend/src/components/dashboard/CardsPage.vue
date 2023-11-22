@@ -26,6 +26,7 @@
             </div>
           </div>
           <img
+            class="card-remove"
             src="@/assets/images/icons/delete.png"
             @click="removeCard(card.id)"
           />
