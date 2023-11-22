@@ -5,9 +5,9 @@ from dataclasses_json import dataclass_json, LetterCase
 @dataclass_json(letter_case=LetterCase.CAMEL)
 @dataclass(init=True)
 class Card:
-    id_user: int
-    username: str
-    num_card: str
-    card_validity: str
-    security_code: int
+    id_user: int = None
+    username: str = None
+    num_card: str = None
+    card_validity: str = None
+    security_code: int = None
     id: int = None
