@@ -1,4 +1,4 @@
-describe("Check Help Menu", () => {
+describe("Check Add Friend", () => {
     beforeEach(() => {
         cy.viewport(1920, 1080)
     })
@@ -20,8 +20,11 @@ describe("Check Help Menu", () => {
       cy.get('.login__btn').click()
     });
 
-    it("Show Help", () => {
-        cy.get('.menu-link.help').click()
-        cy.get('.help__icon').click({ multiple: true, force: true })
-      });
+    it("Friends Menu", () => {
+        cy.get('.menu-link.friends').click()
+        cy.get('.friends-add__btn').click()
+
+        cy.get('.friends-form__input').type('ennes')
+        cy.get('.friends-add__btn').click()
+    });
 });
