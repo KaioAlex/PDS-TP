@@ -1,0 +1,21 @@
+name: Teste em múltiplos sistemas operacionais
+run-name: ${{ github.actor }} testando em multiplos sistemas
+on: [push]
+
+jobs:
+  testar:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Configurar ambiente Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+      
+    - name: Executar testes
+      run: python -m unittest
