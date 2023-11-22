@@ -18,7 +18,7 @@
       <label class="card-form__label" for="num_card">Número do cartão</label>
       <input
         v-model="form.num_card"
-        class="card-form__input"
+        class="card-form__input num_card"
         type="text"
         name="num_card"
         v-maska="'#### #### #### ####'"
@@ -27,7 +27,7 @@
       <label class="card-form__label" for="username">Nome no cartão</label>
       <input
         v-model="form.username"
-        class="card-form__input"
+        class="card-form__input username"
         type="text"
         name="username"
         placeholder="Nome no cartão"
@@ -39,7 +39,7 @@
           >
           <input
             v-model="form.card_validity"
-            class="card-form__input"
+            class="card-form__input card_validity"
             type="date"
             name="card_validity"
             v-maska="'##/##'"
@@ -52,7 +52,7 @@
           >
           <input
             v-model="form.security_code"
-            class="card-form__input"
+            class="card-form__input security_code"
             type="text"
             name="security_code"
             maxlength="3"
