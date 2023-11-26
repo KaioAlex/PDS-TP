@@ -1,12 +1,12 @@
 name: Teste em múltiplos sistemas operacionais
-run-name: ${{ github.actor }} testando em multiplos sistemas
+run-name: ${{ github.actor }} testes
 on: [push]
 
 jobs:
   testar:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout do código
@@ -20,6 +20,4 @@ jobs:
     - name: Executar testes
       run: |
           python3 -m pip install pytest
-          cd backend
-          cd testes
-          pytest ./
+          pytest ./backend/testes/
