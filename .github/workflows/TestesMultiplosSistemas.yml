@@ -1,24 +1,29 @@
-name: Teste em múltiplos sistemas operacionais
-run-name: ${{ github.actor }} testes
-on: [push]
+name: Python Tests
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  testar:
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+  test:
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout do código
+    - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Configurar ambiente Python
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
-      
-    - name: Executar testes
+        python-version: 3.8
+
+    - name: Install dependencies
       run: |
-          python3 -m pip install pytest
-          cd /home/runner/work/PDS-TP/PDS-TP
-          pytest ./backend/testes/
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Install your project dependencies
+
+    - name: Run tests
+      run: |
+        cd backend/testes/
+        python -m pytest tests/
