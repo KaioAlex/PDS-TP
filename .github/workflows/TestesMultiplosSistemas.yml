@@ -1,4 +1,4 @@
-name: Python Tests
+name: Python Tests with MySQL
 
 on:
   push:
@@ -8,6 +8,18 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: bdSplitWallet
+          MYSQL_USER: root
+          MYSQL_PASSWORD: password
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
     - name: Checkout code
@@ -21,7 +33,15 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt  # Install your project dependencies
+        pip install -r requirements.txt
+
+    - name: Wait for MySQL to be healthy
+      run: |
+        until mysql --host=localhost --port=3306 --user=your_user --password=your_password --execute="SELECT 1"; do sleep 1; done
+
+    - name: Run database migrations (if applicable)
+      run: |
+        # Replace this command with your actual database migration command
 
     - name: Run tests
       run: |
