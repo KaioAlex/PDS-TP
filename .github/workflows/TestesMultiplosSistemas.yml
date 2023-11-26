@@ -20,4 +20,5 @@ jobs:
     - name: Executar testes
       run: |
           python3 -m pip install pytest
+          cd /home/runner/work/PDS-TP/PDS-TP
           pytest ./backend/testes/
