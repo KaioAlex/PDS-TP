@@ -20,6 +20,5 @@ jobs:
     - name: Executar testes
       run: |
           cd backend
-          cd tests
-          cd unit
-          python -m unittest cardsTest.py
+          cd testes
+          pytest ./
