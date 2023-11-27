@@ -3,6 +3,10 @@ import inject
 from src.domain.interfaces.friendship.friendship import Friendship
 from src.domain.interfaces.friendship.friendshipInterface import FriendshipInterface
 
+
+class FriendshipError(BaseException):
+    pass 
+
 class Friendships:
     @inject.autoparams()
     def __init__(self, friendshipinterface: FriendshipInterface):
@@ -12,9 +16,13 @@ class Friendships:
         return self.__friendshipinterface.getFriendshipsList(id)
     
     def postFriendship(self, friendship: Friendship) -> List[Friendship]:
+        if float(friendship.value) < 0:
+            raise FriendshipError("valor invalido")
         return self.__friendshipinterface.postFriendship(friendship)
     
     def deleteFriendships(self, user_id: int,friend_id: int) -> str:
+        if user_id or friend_id < 0:
+            raise FriendshipError("valor invalido")
         return self.__friendshipinterface.deleteFriendship(user_id, friend_id)
         
 
