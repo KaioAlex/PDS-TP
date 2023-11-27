@@ -4,13 +4,13 @@ from src.domain.interfaces.user.userInterface import UserInterface
 
 @pytest.fixture
 def user() -> User:
-	return User("John", "J2024", "r2025@gmail.com", "2020-01-16", "50.00", "0", "teste1234", 255)
+	return User("John", "John2024", "r2025@gmail.com", "2020-01-16", "50.00", "0", "teste1234", 255)
 
 class TestUser:
     def test_create_user(self, user: User):
         assert user.id == 255
         assert user.name == "John"
-        assert user.username == "J2024"
+        assert user.username == "John2024"
         assert user.email == "r2025@gmail.com"
 
     def test_add_balance(self, user: User):
