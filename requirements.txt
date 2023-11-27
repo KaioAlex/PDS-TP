@@ -66,7 +66,7 @@ requests==2.27.1
 resolvelib==0.8.1
 six==1.16.0
 smmap==5.0.0
--e git+https://github.com/KaioAlex/PDS-TP.git@0c58ee5f4af64d3fddfdead93b1cdd2687e721e5#egg=src&subdirectory=backend
+-e git+https://github.com/KaioAlex/PDS-TP.git@5b9c7b188c6208f12467e0cd99d7809af9d977c9#egg=src&subdirectory=backend
 stevedore==3.5.0
 tokenize-rt==4.2.1
 toml==0.10.2
