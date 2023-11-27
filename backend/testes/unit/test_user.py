@@ -2,10 +2,6 @@ import pytest
 from src.domain.interfaces.user.user import User
 from src.domain.interfaces.user.userInterface import UserInterface
 
-from src.domain.interfaces.transaction.transaction import Transaction
-from src.domain.interfaces.transaction.transactionInterface import TransactionInterface
-from src.domain.usecase.transaction.transaction import TransactionUseCase
-
 @pytest.fixture
 def user() -> User:
 	return User("John", "J2024", "r2025@gmail.com", "2020-01-16", "50.00", "0", "teste1234", 255)
@@ -18,9 +14,6 @@ class TestUser:
         assert user.email == "r2025@gmail.com"
 
     def test_add_balance(self, user: User):
-        # Create a transaction instance
-        transaction = Transaction(id_src=1, id_dest=2, value="100", date="2023-01-16", flag = 1, name_dest="caio")
-        
         initial_balance = float(user.balance)
         amount_to_increase = 30
 
