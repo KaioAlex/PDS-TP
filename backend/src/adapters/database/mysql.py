@@ -116,7 +116,7 @@ class MysqlAdapter(DatabaseInterface):
 
         cursor.close()
         
-        user = self.get_user_by_username(user.username)
+        user = self.getUserByUsername(user.username)
 
         return user
 
