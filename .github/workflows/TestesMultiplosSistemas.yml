@@ -1,25 +1,28 @@
-name: Teste em múltiplos sistemas operacionais
-run-name: ${{ github.actor }} testando em multiplos sistemas
-on: [push]
+name: Python Tests
+
+on:
+  push:
+    branches:
+      - caio_testes
 
 jobs:
-  testar:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+  test:
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout do código
+    - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Configurar ambiente Python
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
-      
-    - name: Executar testes
+        python-version: 3.8
+
+    - name: Install dependencies
       run: |
-          cd backend
-          cd tests
-          cd unit
-          python -m unittest cardsTest.py
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Install your project dependencies
+
+    - name: Run tests
+      run: |
+        python -m pytest backend/testes/unit/

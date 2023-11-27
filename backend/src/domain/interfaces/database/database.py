@@ -38,7 +38,7 @@ class DatabaseInterface(ABC):
         pass
 
     @abstractmethod
-    def get_card_list(self) -> List[Card]:
+    def get_cards_list(self) -> List[Card]:
         pass
 
     @abstractmethod
@@ -51,7 +51,7 @@ class DatabaseInterface(ABC):
 
     # Transaction
     @abstractmethod
-    def get_transaction(self, id) -> List[Transaction]:
+    def get_transactions(self, id) -> List[Transaction]:
         pass
 
     @abstractmethod

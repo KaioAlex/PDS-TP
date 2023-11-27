@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 from typing import List
 
 from src.domain.interfaces.transaction.transaction import Transaction
-#from src.domain.actions.user.users import Users
 
 class TransactionInterface(ABC):
     @abstractmethod
