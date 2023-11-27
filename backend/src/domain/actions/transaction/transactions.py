@@ -4,9 +4,6 @@ import inject
 from src.domain.interfaces.transaction.transaction import Transaction
 from src.domain.interfaces.transaction.transactionInterface import TransactionInterface
 
-class ValorTransacaoAltoError(BaseException):
-    pass
-
 class Transactions:
     @inject.autoparams()
     def __init__(self, transactioninterface: TransactionInterface):
@@ -17,12 +14,12 @@ class Transactions:
 
     def postTransaction(self, tran:Transaction) -> Transaction: 
         if float(tran.value) > 10000:
-            raise ValorTransacaoAltoError("valor de transacao muito alto")  
+            raise ValueError("valor de transacao muito alto")  
         return self.__transactioninterface.postTransaction(tran)
 
     def makeUsersTransfer(self, tran:Transaction) -> str:   
         if float(tran.value) > 10000:
-            raise ValorTransacaoAltoError("valor de transacao muito alto")
+            raise ValueError("valor de transacao muito alto")
         return self.__transactioninterface.makeUsersTransfer(tran)
 
     def addBalance(self, username:str, value:float) -> str:
