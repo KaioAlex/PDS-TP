@@ -13,7 +13,7 @@ class Friendships:
         return self.__friendshipinterface.getFriendshipsList(id)
     
     def postFriendship(self, friendship: Friendship) -> List[Friendship]:
-        if friendship.user_id1 < 0 or friendship.user_id2 < 0:
+        if friendship.user_id1 < 0 or friendship.user_id2 < 0: 
             raise ValueError("valor invalido")
         return self.__friendshipinterface.postFriendship(friendship)
     
