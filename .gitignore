@@ -1,3 +1,4 @@
 **/__pycache__/
 bd_config.py
 .vscode
+venv/
